@@ -42,12 +42,6 @@ class PermissionTableSeeder extends Seeder
                 'description' => 'view setting'
             ],
             [
-                'name' => 'task',
-                'permission_group' => permissionGroup()['tp'],
-                'display_name' => 'task',
-                'description' => 'view task'
-            ],
-            [
                 'name' => 'trash list',
                 'permission_group' => permissionGroup()['syp'],
                 'display_name' => 'trash list',

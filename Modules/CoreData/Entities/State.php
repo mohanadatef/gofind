@@ -28,7 +28,7 @@ class State extends Model
      *
      * @var array
      */
-    protected $with = ['name','country','city'];
+    protected $with = ['name','city'];
     public static function getValidationRules()
     {
         return self::$rules;

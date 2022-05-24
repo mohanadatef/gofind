@@ -24,7 +24,7 @@ class City extends Model
      *
      * @var array
      */
-    protected $with = ['name','country'];
+    protected $with = ['name'];
     public static $rules = [
         'order' => 'required|numeric|unique:cities',
     ];

@@ -162,7 +162,6 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
-        Benwilkins\FCM\FcmNotificationServiceProvider::class,
         /*
          * Package Service Providers...
          */
