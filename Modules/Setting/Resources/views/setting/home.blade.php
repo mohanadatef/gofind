@@ -33,7 +33,7 @@
                     <div class="col-md-12">
                     @include('errors.error')
                         <!-- jquery validation -->
-                        <form action="{{route('setting.update-home')}}" method="post" id="edit" enctype="multipart/form-data">
+                        <form action="{{route('setting.update')}}" method="post" id="edit" enctype="multipart/form-data">
                             @csrf
                             <div class="card card-primary">
                                 <div class="card-header">
@@ -102,7 +102,7 @@
                                                 <label for="home_section_2_icon_video_link">{{$custom[strtolower('home_section_2_icon_video_link')]??'link'}}</label>
                                                 <input type="text" name="home_section_2_icon_video_link" class="form-control"
                                                        id="home_section_2_icon_video_link"
-                                                       value="{{$datas[strtolower('home_section_2_icon_video_link')]}}"
+                                                       value="{{$datas[strtolower('home_section_2_icon_video_link')]??""}}"
                                                        placeholder="{{$custom[strtolower('home_section_2_icon_video_link')]??"lang not found"}}">
                                             </div>
                                         </div>

@@ -17,7 +17,7 @@ class settingTableSeeder extends Seeder
     public function run()
     {
         $setting = [
-            ['key' => 'name','value'=>'shogol'],
+            ['key' => 'name','value'=>'gofind'],
             ['key' => 'logos'],
             ['key' => 'Version','value'=>'1.0.0.0'],
             ['key' => 'facebook','value'=>''],

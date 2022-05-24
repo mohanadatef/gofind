@@ -43,7 +43,7 @@ class Setting extends Model
 
     public function logo()
     {
-        return $this->media()->whereType(mediaType()['lm'])->whereNull('deleted_at');
+        return $this->media()->whereType(mediaType()['lo'])->whereNull('deleted_at');
     }
     public function image()
     {
