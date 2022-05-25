@@ -5,22 +5,23 @@ namespace Modules\CoreData\Repositories;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Modules\Basic\Repositories\BasicRepository;
-use Modules\CoreData\Entities\City;
+use Modules\CoreData\Entities\Country;
 
-class CityRepository extends BasicRepository
+class CountryRepository extends BasicRepository
 {
     /**
      * @var array
      */
     protected $fieldSearchable = [
-        'id','country_id','status'
+        'id','status'
     ];
+
     /**
      * Configure the Model
      **/
     public function model()
     {
-        return City::class;
+        return Country::class;
     }
     /**
      * Return searchable fields
@@ -39,9 +40,9 @@ class CityRepository extends BasicRepository
     {
         return $this->model->translationKey();
     }
-    public function findBy(Request $request,$trash=false,$pagination = false , $perPage = 10,$withRelations=[])
+    public function findBy(Request $request,$trash=false,$pagination = false , $perPage = 10)
     {
-        return $this->all($request->all(),['*'],$withRelations,[], [],$trash,[],[],'',null,null,$pagination,$perPage);
+        return $this->all($request->all(),['*'],[],[], [],$trash,[],[],'',null,null,$pagination,$perPage);
     }
 
     public function findOne($id)
@@ -54,7 +55,7 @@ class CityRepository extends BasicRepository
         return DB::transaction(function () use ($request,$id) {
             if($id)
             {
-                $data = $this->update($request->all(),$id);
+                $data=$this->update($request->all(),$id);
             }else{
                 $data = $this->create($request->all());
             }
@@ -66,6 +67,6 @@ class CityRepository extends BasicRepository
     public function list(Request $request,$pagination = false , $perPage = 10)
     {
         $request->merge(['status' => activeType()['as']]);
-      return $this->all($request->all(),['*'],[],[],[],false,[],['column'=>'order','order'=>'asc'],'',null,null,$pagination,$perPage);
+        return $this->all($request->all(),['*'],[],[],[],false,[],['column'=>'order','order'=>'asc'],'',null,null,$pagination,$perPage);
     }
 }

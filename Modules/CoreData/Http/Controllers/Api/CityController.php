@@ -17,7 +17,7 @@ class CityController extends BasicController
 
     public function list(Request $request)
     {
-        return $this->apiResponse($this->service->list($request,$this->pagination(),$this->perPage()),getCustomTranslation('Done'));
+        return $this->apiResponse($this->service->list($request,$this->pagination(),$this->perPage(),['country']),getCustomTranslation('Done'));
     }
 
 }

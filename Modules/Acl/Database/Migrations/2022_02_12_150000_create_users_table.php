@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
             $table->integer('status')->default(1);
             $table->string('description')->nullable();
+            $table->integer('country_id')->nullable()->index()->default(0);
             $table->integer('city_id')->nullable()->index()->default(0);
             $table->integer('state_id')->nullable()->index()->default(0);
             $table->string('password');

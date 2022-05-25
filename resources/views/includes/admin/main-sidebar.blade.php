@@ -65,6 +65,14 @@
                                         </p>
                                     </a>
                                     <ul class="nav nav-treeview">
+                                        @permission('country-index')
+                                        <li class="nav-item">
+                                            <a href="{{route('country.index')}}" class="nav-link">
+                                                <i class="far fa-dot-circle nav-icon"></i>
+                                                <p>{{$custom[strtolower('country')]??"lang not found"}}</p>
+                                            </a>
+                                        </li>
+                                        @endpermission
                                         @permission('city-index')
                                             <li class="nav-item">
                                                 <a href="{{route('city.index')}}" class="nav-link">

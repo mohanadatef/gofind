@@ -11,6 +11,7 @@ use Modules\Acl\Entities\Role;
 use Modules\Basic\Entities\Log;
 use Modules\Basic\Entities\Media;
 use Modules\CoreData\Entities\City;
+use Modules\CoreData\Entities\Country;
 use Modules\CoreData\Entities\State;
 
 class User extends Authenticatable
@@ -122,6 +123,11 @@ class User extends Authenticatable
     public function avatar()
     {
         return $this->media()->whereType(mediaType()['am'])->whereNull('deleted_at');
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::Class, 'country_id')->withTrashed();
     }
 
     public function city()

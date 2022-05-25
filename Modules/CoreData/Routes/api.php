@@ -6,14 +6,7 @@ use Modules\CoreData\Http\Controllers\Api\CategoryController;
 use Modules\CoreData\Http\Controllers\Api\CountryController;
 use Modules\CoreData\Http\Controllers\Api\CityController;
 use Modules\CoreData\Http\Controllers\Api\StateController;
-use Modules\CoreData\Http\Controllers\Api\GenderController;
-use Modules\CoreData\Http\Controllers\Api\NationalityController;
-use Modules\CoreData\Http\Controllers\Api\LevelController;
-use Modules\CoreData\Http\Controllers\Api\SocialController;
 use Modules\CoreData\Http\Controllers\Api\CoreDataController;
-use Modules\CoreData\Http\Controllers\Api\StatusController;
-use Modules\CoreData\Http\Controllers\Api\CurrencyController;
-use Modules\CoreData\Http\Controllers\Api\JobNameController;
 use Modules\CoreData\Http\Controllers\Api\TagController;
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +43,10 @@ Route::group(['middleware' => 'api', 'language'], function () {
             //state
             Route::prefix('/state')->name('state.')->group(function () {
                 Route::any('/list', [StateController::class, 'list'])->name('list');
+            });
+            //country
+            Route::prefix('/country')->name('country.')->group(function () {
+                Route::any('/list', [CountryController::class, 'list'])->name('list');
             });
         });
     });

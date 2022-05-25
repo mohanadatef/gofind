@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(LanguageTableSeeder::class);
+        $this->call(CountryTableSeeder::class);
         $this->call(CityTableSeeder::class);
         $this->call(StateTableSeeder::class);
         $this->call(TagCustomTranslationsTableSeeder::class);
@@ -42,6 +43,7 @@ class DatabaseSeeder extends Seeder
         $this->call(RoleCustomTranslationsTableSeeder::class);
         $this->call(RolePermissionTableSeeder::class);
         $this->call(LogPermissionTableSeeder::class);
+        $this->call(CountryPermissionTableSeeder::class);
         $this->call(AddAdminRoleTableSeeder::class);
         $this->call(PassportTokens::class);
     }

@@ -10,7 +10,7 @@ use Modules\Basic\Entities\Translation;
 class State extends Model
 {
     protected $fillable = [
-        'status', 'order', 'city_id'
+        'status', 'order', 'city_id', 'country_id'
     ];
     protected $table = 'states';
     public $timestamps = true;
@@ -22,6 +22,7 @@ class State extends Model
     public static $rules = [
         'order' => 'required|numeric|unique:cities',
         'city_id' => 'required|exists:cities,id',
+        'country_id' => 'required|exists:countries,id',
     ];
     /**
      * The relations to eager load on every query.
@@ -53,6 +54,11 @@ class State extends Model
         return $this->morphone(Translation::class, 'category')
             ->where('key' ,'name')
             ->where('language_id' ,languageId())->withTrashed();
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class, 'country_id')->withTrashed();
     }
 
     public function city()

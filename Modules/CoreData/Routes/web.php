@@ -65,5 +65,15 @@ Route::group(['middleware' => 'admin', 'auth', 'language'], function () {
             Route::post('/{id}','update')->name('update');
             Route::get('/{id}','show')->name('show');
         });
+        /* country route list */
+        Route::apiresource('country', CountryController::class, ['except' => ['show', 'update']])
+            ->parameters(['country' => 'id']);
+        Route::controller(CountryController::class)->prefix('/country')->name('country.')->group(function () {
+            Route::get('/change_status/{id}', 'changeStatus')->name('status');
+            Route::get('/trash', 'trash')->name('trash');
+            Route::get('/restore/{id}', 'restore')->name('restore');
+            Route::post('/{id}', 'update')->name('update');
+            Route::get('/{id}', 'show')->name('show');
+        });
     });
 });

@@ -29,8 +29,9 @@ class CityController extends BasicController
     public function index(Request $request)
     {
         ActiveLog(null,actionType()['va'],'city');
-        $datas = $this->service->findBy($request,false,true,$this->perPage());
-        return view(checkView('coredata::city.index'), compact('datas'));
+        $datas = $this->service->findBy($request,false,true,$this->perPage(),['country']);
+        $country=$this->service->getListCountry($request);
+        return view(checkView('coredata::city.index'), compact('datas','country'));
     }
 
     public function store(CreateRequest $request)

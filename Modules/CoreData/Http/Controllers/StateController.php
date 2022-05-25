@@ -30,7 +30,8 @@ class StateController extends BasicController
     {
         ActiveLog(null,actionType()['va'],'state');
         $datas = $this->service->findBy($request,false,true , $this->perPage());
-        return view(checkView('coredata::state.index'), compact('datas'));
+        $country=$this->service->getListCountry($request);
+        return view(checkView('coredata::state.index'), compact('datas','country'));
     }
 
     public function store(CreateRequest $request)

@@ -13,7 +13,7 @@ class StateRepository extends BasicRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'id','status'
+        'id','city_id','country_id','status'
     ];
     /**
      * Configure the Model

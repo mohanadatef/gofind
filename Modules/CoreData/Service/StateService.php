@@ -10,7 +10,7 @@ use Modules\CoreData\Repositories\StateRepository;
 
 class StateService extends BasicService
 {
-    protected $repo;
+    protected $repo,$countryService;
 
     /**
      * Create a new Repository instance.
@@ -18,9 +18,10 @@ class StateService extends BasicService
      * @return void
      */
 
-    public function __construct(StateRepository $repository)
+    public function __construct(StateRepository $repository,CountryService $countryService)
     {
         $this->repo = $repository;
+        $this->countryService = $countryService;
     }
 
     public function findBy(Request $request,$trash = false,$pagination = false , $perPage = 10)
@@ -46,5 +47,9 @@ class StateService extends BasicService
     {
         ActiveLog(null,actionType()['va'],'state');
         return StateListResource::collection($this->repo->list($request,$pagination,$perPage));
+    }
+
+    public function getListCountry(Request $request){
+        return $this->countryService->list($request);
     }
 }

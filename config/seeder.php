@@ -2,6 +2,7 @@
 
 return [
     'LanguageTableSeeder',
+    'CountryTableSeeder',
     'CityTableSeeder',
     'StateTableSeeder',
     'TagCustomTranslationsTableSeeder',
@@ -32,6 +33,7 @@ return [
     'LogPermissionTableSeeder',
     'HomeSettingValueTableSeeder',
     'HomeCustomTranslationsTableSeeder',
+    'CountryPermissionTableSeeder',
     'AddAdminRoleTableSeeder',
     'PassportTokens',
 ];

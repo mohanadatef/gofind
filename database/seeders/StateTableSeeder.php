@@ -19,7 +19,8 @@ class StateTableSeeder extends Seeder
             [
                 "order" => 1,
                 "name" => "منطقه الرياض",
-                "city_id" => 1
+                "city_id" => 1,
+                 "country_id" => 1,
             ],
         ];
         foreach ($state as $value) {

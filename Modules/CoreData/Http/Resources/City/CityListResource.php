@@ -2,6 +2,7 @@
 
 namespace Modules\CoreData\Http\Resources\City;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Modules\CoreData\Http\Resources\Country\CountryListResource;
 
 class CityListResource extends JsonResource
 {
@@ -10,6 +11,7 @@ class CityListResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name->value ?? "",
+            'country'=> new CountryListResource($this->country)
         ];
     }
 }

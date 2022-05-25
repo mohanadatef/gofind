@@ -3,9 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Modules\CoreData\Entities\City;
+use Modules\CoreData\Entities\Country;
 
-class CityTableSeeder extends Seeder
+class CountryTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,16 +14,14 @@ class CityTableSeeder extends Seeder
      */
     public function run()
     {
-        $city = [
+        $country = [
             [
-                "order" => 1,
-                "country_id" => 1,
-                "name" => "الرياض",
+                'order' => 0,
+                'name' => 'السعودية',
             ],
         ];
-
-        foreach ($city as $value) {
-            $data = City::create(['order' => $value['order']]);
+        foreach ($country as $value) {
+            $data = Country::create(['order'=>$value['order']]);
             foreach (language() as $lang) {
                 $data->translation()->create(['key' => 'name', 'value' => $value['name'], 'language_id' => $lang->id]);
             }

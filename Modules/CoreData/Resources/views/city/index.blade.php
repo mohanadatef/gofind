@@ -47,6 +47,7 @@
                                         <thead>
                                         <tr>
                                              <th>{{$custom[strtolower('Name')]??"lang not found"}}</th>
+                                            <th>{{$custom[strtolower('Country')]??"lang not found"}}</th>
                                             @permission('city-change-status')
                                             <th>{{$custom[strtolower('Status')]??"lang not found"}}</th>
                                             @endpermission
@@ -58,6 +59,7 @@
                                             <tr id="data-{{$data->id}}">
                                                 <td id="name-{{$data->id}}"
                                                     data-order="{{$data->order}}">{{$data->name->value ??""}}</td>
+                                                <td id="country-{{$data->id}}"><a href="{{  route('country.index',['id'=>$data->country_id]) }}">{{$data->country->name->value??""}}</a></td>
                                                 @permission('city-change-status')
                                                 <td>
                                                     <input onfocus="changeStatus({{$data->id}})" type="checkbox"
@@ -94,6 +96,7 @@
                                         <tfoot>
                                         <tr>
                                              <th>{{$custom[strtolower('Name')]??"lang not found"}}</th>
+                                            <th>{{$custom[strtolower('Country')]??"lang not found"}}</th>
                                             @permission('city-change-status')
                                             <th>{{$custom[strtolower('Status')]??"lang not found"}}</th>
                                             @endpermission
@@ -145,6 +148,16 @@
                                 <input type="text" name="order" class="form-control" id="order"
                                        value="{{Request::old('order')}}" placeholder="{{$custom[strtolower('Enter_Order')]??"lang not found"}}">
                             </div>
+                            <div class="form-group{{ $errors->has('country_id') ? ' is-invalid' : "" }}">
+                                <label>{{$custom[strtolower('Country')]??"lang not found"}}</label>
+                                <select class="form-control select2" id="country" name="country_id"
+                                        style="width: 100%;">
+                                @foreach($country as $my)
+                                        <option value="{{$my->id}}"
+                                                id="option-country-{{$my->id}}">{{$my->name->value ?? ""}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                         <!-- /.card-body -->
 
@@ -188,6 +201,16 @@
                                 <input type="text" name="order" class="form-control" id="order"
                                        value="" placeholder="{{$custom[strtolower('Enter_Order')]??"lang not found"}}">
                             </div>
+                            <div class="form-group{{ $errors->has('country_id') ? ' is-invalid' : "" }}">
+                                <label>{{$custom[strtolower('Country')]??"lang not found"}}</label>
+                                <select class="form-control select2" id="country-id" name="country_id"
+                                        style="width: 100%;">
+                                    @foreach($country as $my)
+                                        <option value="{{$my->id}}"
+                                                id="option-country-{{$my->id}}">{{$my->name->value ?? ""}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                         <!-- /.card-body -->
 
@@ -213,10 +236,12 @@
                 $(`#edit #name-${res.translation[i].language.code}`).val(res.translation[i].value);
             }
             $('#edit #order').val(res.order);
+            $("#edit #country-id").val(res.country_id);
         }
         //edit data
         function updateItem(res) {
             document.getElementById('name-' + res.id).innerHTML = res.name;
+            document.getElementById('country-' + res.id).innerHTML = res.country.name;
             $(`#name-${res.id}`).attr('data-order', res.order);
         }
     </script>

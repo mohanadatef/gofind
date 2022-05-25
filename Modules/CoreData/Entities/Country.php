@@ -7,39 +7,37 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Basic\Entities\Translation;
 
-class City extends Model
+class Country extends Model
 {
-    use SoftDeletes;
-
     protected $fillable = [
-        'status', 'order', 'country_id'
+        'status','order'
     ];
-    protected $table = 'cities';
-
+    protected $table = 'countries';
     public $timestamps = true;
     public $searchRelationShip = [];
-    protected $dates = ['deleted_at'];
+    use SoftDeletes;
     /**
      * The relations to eager load on every query.
      *
      * @var array
      */
     protected $with = ['name'];
-    public static $rules = [
-        'order' => 'required|numeric|unique:cities',
-        'country_id' => 'required|exists:countries,id',
-    ];
-
-    public static function getValidationRules()
-    {
-        return self::$rules;
-    }
+    protected $dates = ['deleted_at'];
     /**
      * [columns that needs to has customed search such as like or where in]
      *
      * @var string[]
      */
     public $searchConfig = [];
+    public static $rules = [
+        'order' => 'required|numeric|unique:countries',
+    ];
+
+    public static function getValidationRules()
+    {
+        return self::$rules;
+    }
+
     public static function translationKey(){
         return ['name'];
     }
@@ -57,13 +55,14 @@ class City extends Model
     }
 
     public function state()
+
     {
-        return $this->hasMany(state::class);
+        return $this->hasMany(State::class);
     }
 
-    public function country()
+    public function city()
     {
-        return $this->belongsTo(Country::class, 'country_id')->withTrashed();
+        return $this->hasMany(City::class)->withTrashed();
     }
 
     public function user()
@@ -71,15 +70,14 @@ class City extends Model
         return $this->hasMany(User::Class);
     }
 
-    public static function boot()
-    {
+    public static function boot() {
         parent::boot();
-        static::deleting(function ($city) {
-            $city->translation()->delete();
+        static::deleting(function($country) {
+            $country->translation()->delete();
         });
 
-        static::restoring(function ($city) {
-            $city->translation()->withTrashed()->restore();
+        static::restoring(function($country) {
+            $country->translation()->withTrashed()->restore();
         });
     }
 }

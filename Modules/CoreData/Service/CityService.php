@@ -10,7 +10,7 @@ use Modules\CoreData\Repositories\CityRepository;
 
 class CityService extends BasicService
 {
-    protected $repo;
+    protected $repo,$countryService;
 
     /**
      * Create a new Repository instance.
@@ -18,14 +18,15 @@ class CityService extends BasicService
      * @return void
      */
 
-    public function __construct(CityRepository $repository)
+    public function __construct(CityRepository $repository,CountryService $countryService)
     {
         $this->repo = $repository;
+        $this->countryService = $countryService;
     }
 
-    public function findBy(Request $request,$trash = false,$pagination = false , $perPage = 10)
+    public function findBy(Request $request,$trash = false,$pagination = false , $perPage = 10,$withRelations = [])
     {
-        return $this->repo->findBy($request,$trash,$pagination,$perPage);
+        return $this->repo->findBy($request,$trash,$pagination,$perPage,$withRelations);
     }
 
     public function store(Request $request)
@@ -46,5 +47,9 @@ class CityService extends BasicService
     {
         ActiveLog(null,actionType()['va'],'city');
         return CityListResource::collection($this->repo->list($request,$pagination,$perPage));
+    }
+
+    public function getListCountry(Request $request){
+        return $this->countryService->list($request);
     }
 }

@@ -41,13 +41,15 @@
                                     <thead>
                                     <tr>
                                         <th>{{$custom[strtolower('Name')]??"lang not found"}}</th>
-                                       <th>{{$custom[strtolower('action')]??"lang not found"}}</th>
+                                        <th>{{$custom[strtolower('Country')]??"lang not found"}}</th>
+                                        <th>{{$custom[strtolower('action')]??"lang not found"}}</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     @forelse($datas as $data)
                                         <tr id="data-{{$data->id}}">
                                             <td id="name-{{$data->id}}">{{$data->name->value ??""}}</td>
+                                            <td id="country-{{$data->id}}"><a href="{{  route('state.index',['id'=>$data->country_id]) }}">{{$data->country->name->value??""}}</a></td>
                                             <td>
                                             @permission('city-restore')
                                                 <button type="button" class="btn btn-outline-primary btn-block btn-sm"
@@ -64,7 +66,8 @@
                                     <tfoot>
                                     <tr>
                                         <th>{{$custom[strtolower('Name')]??"lang not found"}}</th>
-                                       <th>{{$custom[strtolower('action')]??"lang not found"}}</th>
+                                        <th>{{$custom[strtolower('Country')]??"lang not found"}}</th>
+                                        <th>{{$custom[strtolower('action')]??"lang not found"}}</th>
                                     </tr>
                                     </tfoot>
                                 </table>

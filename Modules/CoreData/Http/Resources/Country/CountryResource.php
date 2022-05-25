@@ -1,11 +1,10 @@
 <?php
 
-namespace Modules\CoreData\Http\Resources\City;
+namespace Modules\CoreData\Http\Resources\Country;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Modules\CoreData\Http\Resources\Country\CountryResource;
 
-class CityResource extends JsonResource
+class CountryResource extends JsonResource
 {
     public function toArray($request)
     {
@@ -14,7 +13,6 @@ class CityResource extends JsonResource
             'name' => $this->name->value ?? "",
             'order' => $this->order,
             'status' => $this->status,
-            'country'=> new CountryResource($this->country)
         ];
     }
 }
