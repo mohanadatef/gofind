@@ -4,7 +4,6 @@ namespace Modules\Basic\Traits;
 
 
 use Illuminate\Http\Request;
-use function language;
 
 trait LanguageTrait
 {
