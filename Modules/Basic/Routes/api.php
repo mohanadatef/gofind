@@ -14,7 +14,7 @@ use Modules\Basic\Http\Controllers\Api\LogController;
 |
 */
 
-Route::group(['middleware' => 'api', 'language_api'], function () {
+Route::group(['middleware' => 'api', 'language'], function () {
     Route::name('api.')->group(function () {
         Route::prefix('/basic')->name('basic.')->group(function () {
             //custom_translation

@@ -24,7 +24,7 @@ class Tag extends Model
      *
      * @var array
      */
-    protected $with = ['name','category'];
+    protected $with = ['name'];
     public static $rules = [
     ];
 

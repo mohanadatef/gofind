@@ -5,7 +5,6 @@ namespace Modules\Acl\Entities;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Modules\Task\Entities\Ad;
 
 class Favourite extends Model
 {

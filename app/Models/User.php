@@ -25,7 +25,7 @@ class User extends Authenticatable
     protected $fillable = [
         'fullname', 'email', 'password', 'mobile', 'status',
         'city_id', 'state_id', 'token',  'description', 'tax_number', 'available', 'commercial_number',
-        'info', 'role_id'
+        'info', 'role_id','country_id'
     ];
     /**
      * The attributes that should be hidden for serialization.
@@ -41,7 +41,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $with = ['avatar', 'city', 'state', 'role'];
+    protected $with = ['role'];
     /**
      * The attributes that should be cast.
      *
@@ -69,6 +69,7 @@ class User extends Authenticatable
         'email' => 'regex:/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]/|min:2|max:50|email|unique:users',
         'mobile' => 'required|numeric|digits:12|unique:users',
         'city_id' => 'exists:cities,id',
+        'country_id' => 'exists:countries,id',
         'state_id' => 'exists:states,id',
     ];
 
@@ -99,7 +100,6 @@ class User extends Authenticatable
     public static function getValidationRulesUpdate()
     {
         $rulesCreate = self::$rules;
-        unset($rulesCreate['username'], $rulesCreate['mobile'], $rulesCreate['email'], $rulesCreate['role_id']);
         $rulesUpdate = array_merge($rulesCreate, self::$rulesUpdate);
         return $rulesUpdate;
     }

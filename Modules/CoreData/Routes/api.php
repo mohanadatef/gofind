@@ -26,7 +26,7 @@ use Modules\CoreData\Http\Controllers\Api\TagController;
 |
 */
 
-Route::group(['middleware' => 'api', 'language_api'], function () {
+Route::group(['middleware' => 'api', 'language'], function () {
     Route::name('api.')->group(function () {
         Route::prefix('/coredata')->name('coredata.')->group(function () {
             //core data

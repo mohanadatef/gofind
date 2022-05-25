@@ -19,7 +19,7 @@ use Modules\Setting\Http\Controllers\Api\NotificationController;
 |
 */
 
-Route::group(['middleware' => 'api', 'language_api'], function () {
+Route::group(['middleware' => 'api', 'language'], function () {
     Route::name('api.')->group(function () {
         Route::prefix('/setting')->name('setting.')->group(function () {
             //contact_us

@@ -33,7 +33,7 @@ class Category extends Model
      *
      * @var array
      */
-    protected $with = ['name','parents'];
+    protected $with = ['name'];
     public static function getValidationRules()
     {
         return self::$rules;

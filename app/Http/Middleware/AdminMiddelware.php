@@ -19,9 +19,11 @@ class AdminMiddelware
     {
         if (user()) {
             if (user()->status && permissionShow('dashboard')) {
+                ActiveLog(user(), actionType()['la'], 'login');
                 return $next($request);
             }
         }
+        ActiveLog(null, actionType()['la'], 'failed');
         Auth::logout();
         return redirect('/login')->with('message_fales', getCustomTranslation('Message_Support'));
     }

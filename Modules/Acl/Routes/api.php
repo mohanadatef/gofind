@@ -19,7 +19,7 @@ use Modules\Acl\Http\Controllers\Api\FavouriteController;
 |
 */
 
-Route::group(['middleware' => 'api', 'language_api'], function () {
+Route::group(['middleware' => 'api', 'language'], function () {
     Route::name('api.')->group(function () {
         //auth
         Route::prefix('/auth')->name('auth.')->group(function () {
