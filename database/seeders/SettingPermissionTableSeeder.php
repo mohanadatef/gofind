@@ -23,6 +23,12 @@ class SettingPermissionTableSeeder extends Seeder
                 'display_name' => 'setting edit',
                 'description' => 'setting edit'
             ],
+            [
+                'name' => 'setting home',
+                'permission_group' => permissionGroup()['sp'],
+                'display_name' => 'setting home',
+                'description' => 'setting home'
+            ],
         ];
         foreach ($permissions as $value) {
             $data = app()->make(PermissionService::class)->findBy(new Request(['name' => strtolower(str_replace([" " ,'_'],"-",$value['name']))]), 'count');

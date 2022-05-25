@@ -15,26 +15,29 @@ class SettingController extends BasicController
     {
         $this->middleware('auth');
         $this->middleware('permission:setting-edit')->only('edit');
+        $this->middleware('permission:setting-home')->only('edit');
         $this->service = $Service;
     }
 
     public function edit(Request $request)
     {
-        $datas = $this->service->findBy($request,'',['value','key']);
-        return view('setting::setting.edit',compact('datas'));
+        ActiveLog(null, actionType()['va'], 'setting');
+        $datas = $this->service->findBy($request, '', ['value', 'key']);
+        return view('setting::setting.edit', compact('datas'));
     }
+
     public function home(Request $request)
     {
-        $datas = $this->service->findBy($request,'',['value','key']);
-    return view('setting::setting.home',compact('datas'));
+        ActiveLog(null, actionType()['va'], 'home');
+        $datas = $this->service->findBy($request, '', ['value', 'key']);
+        return view('setting::setting.home', compact('datas'));
     }
 
 
     public function update(EditRequest $request)
     {
-        $data= $this->service->update($request);
-        if($data)
-        {
+        $data = $this->service->update($request);
+        if ($data) {
             return redirect(route('setting.edit'))->with(getCustomTranslation('Done'));
         }
         return redirect()->back()->with(getCustomTranslation('problem'));

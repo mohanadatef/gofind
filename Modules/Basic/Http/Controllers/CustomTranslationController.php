@@ -28,6 +28,7 @@ class CustomTranslationController extends BasicController
     public function index(Request $request)
     {
         $datas = $this->service->findBy($request,false,true,$this->perPage());
+        ActiveLog(null,actionType()['va'],'custom_translation');
         return view('basic::custom_translation.index', compact('datas'));
     }
 
@@ -44,6 +45,7 @@ class CustomTranslationController extends BasicController
     public function trash(Request $request)
     {
         $datas = $this->service->findBy($request,'withTrashed',true,$this->perPage());
+        ActiveLog(null,actionType()['va'],'custom_translation');
         return view(checkView('basic::custom_translation.destroy'), compact('datas'));
     }
 

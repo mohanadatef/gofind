@@ -3,8 +3,6 @@
 namespace Modules\Acl\Repositories;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Modules\Acl\Entities\Favourite;
 use Modules\Basic\Repositories\BasicRepository;
 

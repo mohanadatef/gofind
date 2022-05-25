@@ -24,7 +24,6 @@ class SettingService extends BasicService
 
     public function findBy(Request $request,$get='',$pluck=[])
     {
-        ActiveLog(null, actionType()['va'], 'setting');
         return $this->repo->findBy($request,$get,$pluck);
     }
 

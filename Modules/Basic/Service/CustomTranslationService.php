@@ -24,7 +24,6 @@ class CustomTranslationService extends BasicService
 
     public function findBy(Request $request,$trash = false,$pagination = false , $perPage = 10,$get='')
     {
-        ActiveLog(null,actionType()['va'],'custom_translation');
         return $this->repo->findBy($request,$trash,$pagination,$perPage,$get);
     }
 
