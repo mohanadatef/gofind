@@ -19,7 +19,6 @@ class AdminMiddelware
     {
         if (user()) {
             if (user()->status && permissionShow('dashboard')) {
-                ActiveLog(user(), actionType()['la'], 'login');
                 return $next($request);
             }
         }
