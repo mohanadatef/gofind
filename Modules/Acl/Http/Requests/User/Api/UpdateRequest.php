@@ -7,11 +7,10 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Modules\Basic\Traits\ApiResponseTrait;
-use Modules\Basic\Traits\validationRulesTrait;
 
 class UpdateRequest extends FormRequest
 {
-    use ApiResponseTrait, validationRulesTrait;
+    use ApiResponseTrait;
 
     /**
      * Determine if the User is authorized to make this request.
@@ -37,9 +36,7 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = User::getValidationRulesUpdate();
-        $rules['fullname'] = str_replace("required|", "", $rules['fullname']);
-        return $rules;
+        return User::getValidationRulesUpdate();
     }
 
     protected function failedValidation(Validator $validator)

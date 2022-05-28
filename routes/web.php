@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Modules\CoreData\Http\Controllers\LanguageController;
 use App\Http\Controllers\HomeController;
 use Modules\CoreData\Http\Controllers\CityController;
+use Modules\CoreData\Http\Controllers\StateController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Auth\LoginController;
 
@@ -34,4 +35,9 @@ Route::prefix('/language')->group(function () {
 Route::prefix('/city')->group(function () {
     Route::get('/list', [CityController::class, 'list'])
         ->name('city.list');
+});
+//state
+Route::prefix('/state')->group(function () {
+    Route::get('/list', [StateController::class, 'list'])
+        ->name('state.list');
 });

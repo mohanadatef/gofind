@@ -48,9 +48,10 @@ class ComposerServiceProvider extends ServiceProvider
             $view->with('setting', $setting);
             $view->with('user', user());
         });
-        view()->composer(['*::*.filter', '*setting::*notification.push'], function ($view) {
+        view()->composer(['acl::user.create','acl::user.edit','acl::user.filter'], function ($view) {
             $view->with('category', app()->make(CategoryService::class)->findBy(new Request()));
             $view->with('role', app()->make(RoleService::class)->findBy(new Request()));
+            $view->with('country', app()->make(CountryService::class)->findBy(new Request()));
             $view->with('city', app()->make(CityService::class)->findBy(new Request()));
             $view->with('state', app()->make(StateService::class)->findBy(new Request()));
         });

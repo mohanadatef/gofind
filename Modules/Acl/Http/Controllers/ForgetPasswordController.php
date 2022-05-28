@@ -4,6 +4,7 @@ namespace Modules\Acl\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Modules\Acl\Http\Requests\ForgetPassword\changePasswordRequest;
+use Modules\Acl\Http\Requests\ForgetPassword\changePasswordRequest as changeRequest;
 use Modules\Acl\Service\ForgetPasswordService;
 use Modules\Basic\Http\Controllers\BasicController;
 
@@ -53,6 +54,17 @@ class ForgetPasswordController extends BasicController
             }
         }
         return redirect()->back()->with('message_fales',getCustomTranslation('failed'));
+    }
+
+    public function update(changeRequest $request,$id)
+    {
+        $request->merge(['user_id'=>$id]);
+        $data = $this->service->changePassword($request);
+        if($data)
+        {
+            return true;
+        }
+        return redirect()->back()->with('message_fales',$data['message']);
     }
 
 }

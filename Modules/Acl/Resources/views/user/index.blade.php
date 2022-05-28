@@ -34,22 +34,19 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            @permission('user-create')
                             <div class="card-header">
                                 <h3 class="card-title">
-                                    <button type="button" class="btn btn-success" data-toggle="modal"
-                                            data-target="#modal-create">
-                                        {{$custom[strtolower('Create')]??"lang not found"}}
-                                    </button>
+                                    @permission('user-create')
+                                    <a href="{{  route('user.create') }}"
+                                       class="btn btn-success"> {{$custom[strtolower('Create')]??"lang not found"}}</a>
+                                    @endpermission
                                 </h3>
                             </div>
-                            @endpermission
                             <!-- /.card-header -->
                             <div class="card-body">
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-
                                         <th>{{$custom[strtolower('Full_Name')]??"lang not found"}}</th>
                                         <th>{{$custom[strtolower('Email')]??"lang not found"}}</th>
                                         <th>{{$custom[strtolower('Mobile')]??"lang not found"}}</th>
@@ -84,16 +81,27 @@
                                             </td>
                                             @endpermission
                                             <td>
-                                                @permission('user-delete')
                                                 @if($data->id != user()->id)
+                                                @permission('user-edit')
+                                                <a href="{{  route('user.edit',$data->id) }}"
+                                                   class="btn btn-outline-primary btn-block btn-sm"><i class="fa fa-edit"></i>{{$custom[strtolower('Edit')]??""}}</a>
+                                                @endpermission
+                                                @permission('user-delete')
                                                     <button type="button"
                                                             class="btn btn-outline-danger btn-block btn-sm"
                                                             onclick="selectItem({{$data->id}})" data-toggle="modal"
                                                             data-target="#modal-delete">
                                                         <i></i> {{$custom[strtolower('Delete')]??"lang not found"}}
                                                     </button>
-                                                @endif
                                                 @endpermission
+                                                    @permission('user-change-password')
+                                                    <button type="button"
+                                                            class="btn btn-outline-danger btn-block btn-sm"
+                                                            onclick="selectItem({{$data->id}})" data-toggle="modal"
+                                                            data-target="#modal-forgotpassword"><i></i> {{trans('lang.Change_Password')}}
+                                                    </button>
+                                                    @endpermission
+                                                @endif
                                             </td>
                                         </tr>
                                     @empty
@@ -127,57 +135,32 @@
         </section>
         <!-- /.content -->
     </div>
-    @permission('user-create')
-    <div class="modal fade" id="modal-create">
+    @permission('user-change-password')
+    <div class="modal fade" id="modal-forgotpassword">
         <div class="modal-dialog">
             <div class="modal-content bg-success">
                 <div class="modal-header">
-                    <h4 class="modal-title">{{$custom[strtolower('Create')]??"lang not found"}}</h4>
+                    <h4 class="modal-title">{{trans('lang.Change_Password')}}</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <form id="create" method="post" action="" enctype="multipart/form-data">
+                <form id="forgotpassword" method="post" action="">
                     @csrf
                     <div class="modal-body">
                         <div class="card-body">
-                            <div class="form-group{{ $errors->has('fullname') ? ' is-invalid' : "" }}">
-                                <label for="fullname">{{$custom[strtolower('fullname')]??"lang not found"}}</label>
-                                <input type="text" name="fullname" class="form-control" id="fullname"
-                                       value="{{Request::old('fullname')}}"
-                                       placeholder="{{$custom[strtolower('Enter_fullname')]??"lang not found"}}">
-                            </div>
-                            <div class="form-group{{ $errors->has('email') ? ' is-invalid' : "" }}">
-                                <label for="email">{{$custom[strtolower('email')]??"lang not found"}}</label>
-                                <input type="email" name="email" class="form-control" id="email"
-                                       value="{{Request::old('email')}}"
-                                       placeholder="{{$custom[strtolower('Enter_email')]??"lang not found"}}">
-                            </div>
-                            <div class="form-group{{ $errors->has('mobile') ? ' is-invalid' : "" }}">
-                                <label for="mobile">{{$custom[strtolower('mobile')]??"lang not found"}}</label>
-                                <input type="text" name="mobile" class="form-control" id="mobile"
-                                       value="{{Request::old('mobile')}}"
-                                       placeholder="{{$custom[strtolower('Enter_mobile')]??"lang not found"}}">
-                            </div>
                             <div class="form-group{{ $errors->has('password') ? ' is-invalid' : "" }}">
-                                <label for="password">{{$custom[strtolower('password')]??"lang not found"}}</label>
+                                <label for="password">{{trans('lang.Password')}}</label>
                                 <input type="password" name="password" class="form-control" id="password"
                                        value="{{Request::old('password')}}"
-                                       placeholder="{{$custom[strtolower('Enter_password')]??"lang not found"}}">
+                                       placeholder="{{trans('lang.Enter_Password')}}">
                             </div>
-                            <div class="form-group{{ $errors->has('password_confirmation') ? ' is-invalid' : "" }}">
-                                <label
-                                    for="password_confirmation">{{$custom[strtolower('password_confirmation')]??"lang not found"}}</label>
+                            <div class="form-group{{ $errors->has('password') ? ' is-invalid' : "" }}">
+                                <label for="password">{{trans('lang.Password_Confirmation')}}</label>
                                 <input type="password" name="password_confirmation" class="form-control"
                                        id="password_confirmation"
                                        value="{{Request::old('password_confirmation')}}"
-                                       placeholder="{{$custom[strtolower('Enter_password_confirmation')]??"lang not found"}}">
-                            </div>
-                            <div class="form-group" hidden>
-                                <label>{{$custom[strtolower('role')]??"lang not found"}}</label>
-                                <input type="text" name="role_ide" class="form-control" id="role_ide"
-                                       value="{{1}}"
-                                       placeholder="{{$custom[strtolower('Enter_role')]??"lang not found"}}">
+                                       placeholder="{{trans('lang.Enter_Password_Confirmation')}}">
                             </div>
                         </div>
                         <!-- /.card-body -->
@@ -185,9 +168,8 @@
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-outline-light"
-                                data-dismiss="modal">{{$custom[strtolower('Close')]??"lang not found"}}</button>
-                        <button type="submit"
-                                class="btn btn-outline-light">{{$custom[strtolower('Create')]??"lang not found"}}</button>
+                                data-dismiss="modal">{{trans('lang.Close')}}</button>
+                        <button type="submit" class="btn btn-outline-light">{{trans('lang.Update')}}</button>
                     </div>
                 </form>
             </div>
