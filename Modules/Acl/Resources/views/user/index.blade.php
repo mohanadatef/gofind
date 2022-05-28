@@ -47,7 +47,6 @@
                                 <table id="example1" class="table table-bordered table-striped">
                                     <thead>
                                     <tr>
-
                                         <th>{{$custom[strtolower('Full_Name')]??"lang not found"}}</th>
                                         <th>{{$custom[strtolower('Email')]??"lang not found"}}</th>
                                         <th>{{$custom[strtolower('Mobile')]??"lang not found"}}</th>
@@ -82,16 +81,20 @@
                                             </td>
                                             @endpermission
                                             <td>
-                                                @permission('user-delete')
                                                 @if($data->id != user()->id)
+                                                @permission('user-edit')
+                                                <a href="{{  route('user.edit',$data->id) }}"
+                                                   class="btn btn-outline-primary btn-block btn-sm"><i class="fa fa-edit"></i>{{$custom[strtolower('Edit')]??""}}</a>
+                                                @endpermission
+                                                @permission('user-delete')
                                                     <button type="button"
                                                             class="btn btn-outline-danger btn-block btn-sm"
                                                             onclick="selectItem({{$data->id}})" data-toggle="modal"
                                                             data-target="#modal-delete">
                                                         <i></i> {{$custom[strtolower('Delete')]??"lang not found"}}
                                                     </button>
-                                                @endif
                                                 @endpermission
+                                                @endif
                                             </td>
                                         </tr>
                                     @empty

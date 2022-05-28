@@ -4,6 +4,7 @@ namespace Modules\Acl\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Modules\Acl\Http\Requests\User\EditRequest;
 use Modules\Acl\Http\Requests\User\CreateRequest;
 use Modules\Acl\Service\UserService;
 use Modules\Basic\Http\Controllers\BasicController;
@@ -63,6 +64,28 @@ class UserController extends BasicController
 
     public function store(CreateRequest $request)
     {
-        return response()->json($this->service->store($request));
+        $data= $this->service->store($request);
+        if($data)
+        {
+            return redirect(route('user.index'))->with(getCustomTranslation('Done'));
+        }
+        return redirect(route('user.create'))->with(getCustomTranslation('problem'));
+    }
+
+    public function edit($id)
+    {
+        $data = $this->service->show($id);
+        ActiveLog($data, actionType()['va'], 'role');
+        return view(checkView('acl::user.edit'),compact('data'));
+    }
+
+    public function update(EditRequest $request, $id)
+    {
+        $data= $this->service->update($request,$id);
+        if($data)
+        {
+            return redirect(route('user.index'))->with(getCustomTranslation('Done'));
+        }
+        return redirect(route('user.edit'))->with(getCustomTranslation('problem'));
     }
 }

@@ -79,7 +79,7 @@ class User extends Authenticatable
         'info' => 'string|min:3|max:150',
     ];
 
-    protected static $PasswordRules = ['password' => 'required|min:8|confirmation'];
+    protected static $PasswordRules = ['password' => 'required|min:8|confirmed'];
 
     public static function getValidationRules()
     {

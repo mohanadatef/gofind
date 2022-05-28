@@ -99,7 +99,7 @@
                                             <div
                                                 class="form-group{{ $errors->has('country_id') ? ' is-invalid' : "" }}">
                                                 <label>{{$custom[strtolower('Country')]??"lang not found"}}</label>
-                                                <select class="form-control " id="country" name="country_id"
+                                                <select class="form-control " id="country_id" name="country_id"
                                                         style="width: 100%;">
                                                     <option value="0"
                                                             id="option-country-0">{{$custom[strtolower('select')]??"lang not found"}}</option>
@@ -114,7 +114,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group{{ $errors->has('city_id') ? ' is-invalid' : "" }}">
                                                 <label>{{$custom[strtolower('city')]??"lang not found"}}</label>
-                                                <select class="form-control " id="city" name="city_id"
+                                                <select class="form-control " id="city_id" name="city_id"
                                                         style="width: 100%;">
                                                     <option value="0"
                                                             id="option-city-0">{{$custom[strtolower('select')]??"lang not found"}}</option>
@@ -129,7 +129,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group{{ $errors->has('state_id') ? ' is-invalid' : "" }}">
                                                 <label>{{$custom[strtolower('state')]??"lang not found"}}</label>
-                                                <select class="form-control " id="state" name="state_id"
+                                                <select class="form-control " id="state_id" name="state_id"
                                                         style="width: 100%;">
                                                     <option value="0"
                                                             id="option-state-0">{{$custom[strtolower('select')]??"lang not found"}}</option>
@@ -142,7 +142,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <img src="{{getFile($data->avater->file,pathType()['ip'],'user')}}"
+                                            <img src="{{getImag($data->avatar,'user',$data->id)}}"
                                                  style="width:100px;height: 100px">
                                             <div class="form-group{{ $errors->has('avater') ? ' has-error' : "" }}">
                                                 <label>{{$custom[strtolower('avater')]??'avater'}}</label>
@@ -177,5 +177,72 @@
     </div>
 @endsection
 @section('script_style')
-    {!! JsValidator::formRequest('Modules\Acl\Http\Requests\User\UpdateRequest','#edit') !!}
+    <script>
+        //city list for country
+        $('#country_id').change(function () {
+            GetCity($(this).val(), 0);
+        });
+
+        function GetCity(country, city) {
+            url = '{{ route("city.list") }}';
+            $.ajax({
+                type: "GET",
+                url: url,
+                data: {'country_id': country},
+                success: function (res) {
+                    $(`#city_id`).empty();
+                    $(`#city_id`).append('<option value="0">select</option>');
+                    for (let x in res) {
+                        for (let i in res[x]) {
+                            if (res[x][i].id) {
+                                if (res[x][i].id == city) {
+                                    $(`#city_id`).append(`<option value="${res[x][i].id}" selected>${res[x][i].name}</option>`);
+                                } else {
+                                    $(`#city_id`).append(`<option value="${res[x][i].id}">${res[x][i].name}</option>`);
+                                }
+                            }
+                        }
+                    }
+                    $(`#city_id`).val(city);
+                }, error: function (res) {
+                    for (let err in res.responseJSON.errors) {
+                        toastr.error(res.responseJSON.errors[err]);
+                    }
+                }
+            });
+        }
+        $('#city_id').change(function () {
+            GetState($(this).val(), 0);
+        });
+
+        function GetState(city,state) {
+            url = '{{ route("state.list") }}';
+            $.ajax({
+                type: "GET",
+                url: url,
+                data: {'city_id': city},
+                success: function (res) {
+                    $(`#state_id`).empty();
+                    $(`#state_id`).append('<option value="0">select</option>');
+                    for (let x in res) {
+                        for (let i in res[x]) {
+                            if (res[x][i].id) {
+                                if (res[x][i].id == state) {
+                                    $(`#state_id`).append(`<option value="${res[x][i].id}" selected>${res[x][i].name}</option>`);
+                                } else {
+                                    $(`#state_id`).append(`<option value="${res[x][i].id}">${res[x][i].name}</option>`);
+                                }
+                            }
+                        }
+                    }
+                    $(`#state_id`).val(state);
+                }, error: function (res) {
+                    for (let err in res.responseJSON.errors) {
+                        toastr.error(res.responseJSON.errors[err]);
+                    }
+                }
+            });
+        }
+    </script>
+    {!! JsValidator::formRequest('Modules\Acl\Http\Requests\User\EditRequest','#edit') !!}
 @endsection
