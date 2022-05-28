@@ -42,6 +42,11 @@ Route::prefix('acl')->group(function() {
         Route::post('/{id}','update')->name('update');
         Route::get('/{id}','show')->name('show');
     });
+    /* forgot password route list */
+    Route::prefix('user/forgetpassword')->name('forgotpassword.')->group(function()
+    {
+        Route::post('/{id}',[ForgetPasswordController::class,'update'])->name('update');
+    });
 });
 });
 Route::group(['middleware' => 'language'], function () {

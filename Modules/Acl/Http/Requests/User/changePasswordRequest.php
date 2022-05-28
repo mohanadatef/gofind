@@ -1,11 +1,9 @@
 <?php
 
-namespace Modules\Acl\Http\Requests\User\Api;
+namespace Modules\Acl\Http\Requests\User;
 
 use App\Models\User;
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Exceptions\HttpResponseException;
 use Modules\Basic\Traits\ApiResponseTrait;
 
 class changePasswordRequest extends FormRequest
@@ -29,11 +27,6 @@ class changePasswordRequest extends FormRequest
     public function rules()
     {
         return User::getValidationRulesPassword();
-    }
-
-    protected function failedValidation(Validator $validator)
-    {
-        throw new HttpResponseException($this->apiValidation($validator->errors()));
     }
 
 }

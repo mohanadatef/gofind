@@ -164,7 +164,8 @@
     $(document).ready(function () {
         $("#forgotpassword").on("submit", function (event) {
             event.preventDefault();
-            url = "{{url('forgotpassword/id')}}";
+            url = "{{url('model/forgetpassword/id')}}";
+            url = url.replace('model', model);
             url = url.replace('id', id);
             $.ajax({
                 type: "post",
@@ -175,6 +176,7 @@
                 success: function (res) {
                     $('#modal-forgotpassword').modal('toggle');
                     toastr.info('{{$custom[strtolower('Edit_Password')]??"lang not found"}}');
+                    location.reload();
                 }, error: function (res) {
                     for (let err in res.responseJSON.errors) {
                         toastr.error(res.responseJSON.errors[err]);
