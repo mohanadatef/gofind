@@ -13,19 +13,20 @@ use Modules\Acl\Http\Controllers\ForgetPasswordController;
 Route::group(['middleware' => 'admin', 'auth', 'language'], function () {
 Route::prefix('acl')->group(function() {
     /* User route list */
-    Route::apiresource('user', UserController::class, ['except' => ['show', 'update']])
+    Route::resource('user', UserController::class, ['except' => ['show', 'update']])
         ->parameters(['user' => 'id']);
     Route::controller(UserController::class)->prefix('/user')->name('user.')->group(function () {
         Route::get('/change_status/{id}', 'changeStatus')->name('status');
         Route::get('/trash', 'trash')->name('trash');
         Route::get('/restore/{id}', 'restore')->name('restore');
+        Route::post('/{id}','update')->name('update');
+        Route::get('/{id}','show')->name('show');
     });
     /* role route list */
     Route::resource('role',RoleController::class,['except'=>['show','update']])
         ->parameters(['role'=>'id']);
     Route::controller(RoleController::class)->prefix('/role')->name('role.')->group(function()
     {
-        Route::get('/change_status/{id}','changeStatus')->name('status');
         Route::get('/trash','trash')->name('trash');
         Route::get('/restore/{id}','restore')->name('restore');
         Route::post('/{id}','update')->name('update');
@@ -36,7 +37,6 @@ Route::prefix('acl')->group(function() {
         ->parameters(['permission'=>'id']);
     Route::controller(PermissionController::class)->prefix('/permission')->name('permission.')->group(function()
     {
-        Route::get('/change_status/{id}','changeStatus')->name('status');
         Route::get('/trash','trash')->name('trash');
         Route::get('/restore/{id}','restore')->name('restore');
         Route::post('/{id}','update')->name('update');

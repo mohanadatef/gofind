@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CountryTableSeeder::class);
         $this->call(CityTableSeeder::class);
         $this->call(StateTableSeeder::class);
+        $this->call(CategoryCustomTranslationsTableSeeder::class);
         $this->call(TagCustomTranslationsTableSeeder::class);
         $this->call(userCustomTranslationsTableSeeder::class);
         $this->call(RoleTableSeeder::class);
@@ -37,6 +38,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TagPermissionTableSeeder::class);
         $this->call(SettingPermissionTableSeeder::class);
         $this->call(LanguagePermissionTableSeeder::class);
+        $this->call(CategoryPermissionTableSeeder::class);
         $this->call(CustomTranslationPermissionTableSeeder::class);
         $this->call(PagePermissionTableSeeder::class);
         $this->call(ContactUsPermissionTableSeeder::class);

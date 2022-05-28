@@ -4,11 +4,9 @@ namespace Modules\Acl\Http\Requests\User;
 
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
-use Modules\Basic\Traits\validationRulesTrait;
 
 class CreateRequest extends FormRequest
 {
-    use validationRulesTrait;
     /**
      * Determine if the User is authorized to make this request.
      *

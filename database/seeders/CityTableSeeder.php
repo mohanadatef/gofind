@@ -23,7 +23,7 @@ class CityTableSeeder extends Seeder
         ];
 
         foreach ($city as $value) {
-            $data = City::create(['order' => $value['order']]);
+            $data = City::create(['order' => $value['order'],'country_id' => $value['country_id']]);
             foreach (language() as $lang) {
                 $data->translation()->create(['key' => 'name', 'value' => $value['name'], 'language_id' => $lang->id]);
             }

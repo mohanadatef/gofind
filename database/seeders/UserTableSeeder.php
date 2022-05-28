@@ -27,7 +27,6 @@ class UserTableSeeder extends Seeder
                 'status' => 1,
                 'city_id' =>1,
                 'state_id' =>1,
-                'country_id' =>1,
             ]);
     }
 }

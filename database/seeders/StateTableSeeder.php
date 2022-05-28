@@ -24,7 +24,7 @@ class StateTableSeeder extends Seeder
             ],
         ];
         foreach ($state as $value) {
-            $data = State::create(['order'=>$value['order'],'city_id'=>$value['city_id']]);
+            $data = State::create(['order'=>$value['order'],'city_id'=>$value['city_id'],'country_id' => $value['country_id']]);
             foreach (language() as $lang) {
                 $data->translation()->create(['key' => 'name', 'value' => $value['name'], 'language_id' => $lang->id]);
             }

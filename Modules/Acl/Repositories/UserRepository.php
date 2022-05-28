@@ -3,7 +3,6 @@
 namespace Modules\Acl\Repositories;
 
 use App\Models\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -15,8 +14,8 @@ class UserRepository extends BasicRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'id',  'city_id',  'status', 'state_id',
-         'mobile', 'email','fullname','created_at','role_id'
+        'id', 'city_id', 'status', 'state_id', 'country_id', 'facebook_id', 'order', 'mobile', 'email',
+        'fullname', 'created_at', 'role_id'
     ];
 
     /**
@@ -47,9 +46,9 @@ class UserRepository extends BasicRepository
         return [];
     }
 
-    public function findBy(Request $request, $trash = false, $moreConditionForFirstLevel = [], $withRelations = [], $get = '', $column = ['*'],$pagination = false , $perPage = 10,$recursiveRel=[])
+    public function findBy(Request $request, $trash = false, $moreConditionForFirstLevel = [], $withRelations = [], $get = '', $column = ['*'], $pagination = false, $perPage = 10, $recursiveRel = [])
     {
-        return $this->all($request->all(), $column, $withRelations, $recursiveRel, $moreConditionForFirstLevel, $trash, [], [], $get,null,null,$pagination,$perPage);
+        return $this->all($request->all(), $column, $withRelations, $recursiveRel, $moreConditionForFirstLevel, $trash, [], [], $get, null, null, $pagination, $perPage);
     }
 
     public function findOne($id)
@@ -64,13 +63,16 @@ class UserRepository extends BasicRepository
                 $request->merge(['password' => Hash::make($request->password)]);
             }
             if ($id) {
-                $data = $this->update($request->all(), $id);
-                $this->checkMediaDelete($data,$request,mediaType()['am']);
-                $this->media_upload($data, $request, createFileNameServer($this->model(), $data->id), pathType()['ip'], mediaType()['am']);
+                $this->update($request->all(), $id);
+                $data = $this->findOne($id);
             } else {
                 $data = $this->create($request->all());
             }
-            return isset($id) ? $this->findOne($id) : $data;
+            if (isset($request->avater)) {
+                $this->checkMediaDelete($data, $request, mediaType()['am']);
+                $this->media_upload($data, $request, createFileNameServer($this->model(), $data->id), pathType()['ip'], mediaType()['am']);
+            }
+            return $data;
         });
     }
 }

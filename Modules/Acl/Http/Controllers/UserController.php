@@ -23,7 +23,7 @@ class UserController extends BasicController
     {
         $this->middleware('auth');
         $this->middleware('permission:user-index')->only('index');
-        $this->middleware('permission:user-create')->only('store');
+        $this->middleware('permission:user-create')->only(['create','store']);
         $this->middleware('permission:user-trash-index')->only('trash');
         $this->middleware('permission:user-change-status')->only('changeStatus');
         $this->middleware('permission:user-delete')->only('delete');
@@ -56,6 +56,10 @@ class UserController extends BasicController
         return view(checkView('acl::user.destroy'), compact('datas'));
     }
 
+    public function create()
+    {
+        return view(checkView('acl::user.create'));
+    }
 
     public function store(CreateRequest $request)
     {

@@ -1,17 +1,12 @@
 <?php
 
-namespace Modules\Acl\Http\Requests\User\Api;
+namespace Modules\Acl\Http\Requests\User;
 
 use App\Models\User;
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Exceptions\HttpResponseException;
-use Modules\Basic\Traits\ApiResponseTrait;
 
 class UpdateRequest extends FormRequest
 {
-    use ApiResponseTrait;
-
     /**
      * Determine if the User is authorized to make this request.
      *
@@ -24,9 +19,7 @@ class UpdateRequest extends FormRequest
 
     protected function prepareForValidation()
     {
-        if (isset($this->mobile)) {
-            $this->merge(['mobile' => $this->convertPersian($this->mobile)]);
-        }
+        $this->merge(['mobile'=>$this->convertPersian($this->mobile)]);
     }
 
     /**
@@ -38,11 +31,5 @@ class UpdateRequest extends FormRequest
     {
         return User::getValidationRulesUpdate();
     }
-
-    protected function failedValidation(Validator $validator)
-    {
-        throw new HttpResponseException($this->apiValidation($validator->errors()));
-    }
-
 
 }

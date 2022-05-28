@@ -24,9 +24,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'fullname', 'email', 'password', 'mobile', 'status',
-        'city_id', 'state_id', 'token',  'description', 'tax_number', 'available', 'commercial_number',
-        'info', 'role_id','country_id'
+        'fullname', 'email', 'password', 'mobile', 'status','city_id', 'state_id', 'token',
+        'info','role_id','country_id','facebook_id','order'
     ];
     /**
      * The attributes that should be hidden for serialization.
@@ -67,30 +66,25 @@ class User extends Authenticatable
     public static $rules = [
         'fullname' => 'required|min:2|max:50|string',
         'role_id' => 'required|exists:roles,id',
-        'email' => 'regex:/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]/|min:2|max:50|email|unique:users',
+        'email' => 'required|regex:/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]/|min:2|max:50|email|unique:users',
         'mobile' => 'required|numeric|digits:12|unique:users',
-        'city_id' => 'exists:cities,id',
+        'order' => 'required|numeric|unique:users',
+        'city_id' => 'required|exists:cities,id',
         'country_id' => 'exists:countries,id',
-        'state_id' => 'exists:states,id',
+        'state_id' => 'required|exists:states,id',
     ];
 
     public static $rulesUpdate = [
         'avatar' => 'image|mimes:jpg,jpeg,png,gif',
-        'description' => 'string|min:3|max:150',
         'info' => 'string|min:3|max:150',
     ];
 
-    protected static $PasswordRules = ['password' => 'required|min:8'];
+    protected static $PasswordRules = ['password' => 'required|min:8|confirmation'];
 
-    //todo role
     public static function getValidationRules()
     {
-        $rules = self::$rules;
-        $rules['email'] .= "|required_if:role_id,2";
-        $rules['city_id'] .= "|required_if:role_id,2";
-        $rules['category'] .= '|required_if:role_id,3,4';
-        $rules = array_merge($rules, self::$PasswordRules);
-        return $rules;
+        $rules = array_merge(self::$rules, self::$PasswordRules);
+        return array_merge($rules, self::$rulesUpdate);
     }
 
     public static function getValidationRulesLogin()
@@ -100,9 +94,7 @@ class User extends Authenticatable
 
     public static function getValidationRulesUpdate()
     {
-        $rulesCreate = self::$rules;
-        $rulesUpdate = array_merge($rulesCreate, self::$rulesUpdate);
-        return $rulesUpdate;
+        return array_merge(self::$rules, self::$rulesUpdate);
     }
 
     public function getValidationRulesPassword()
