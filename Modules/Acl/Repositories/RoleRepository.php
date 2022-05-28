@@ -59,7 +59,7 @@ class RoleRepository extends BasicRepository
         return DB::transaction(function () use ($request,$id) {
             if($id)
             {
-                $data=$this->update($request->all(),$id);
+                $data=$this->findOne($id);
             }else{
                 $data = $this->create($request->all());
             }
