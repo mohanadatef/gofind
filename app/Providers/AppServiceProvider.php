@@ -32,6 +32,7 @@ class AppServiceProvider extends ServiceProvider
         Relation::morphMap([
             'user'=>User::class,
         ]);
+
         Blade::if('permission', function ($expression){
             return permissionShow($expression);
         });
