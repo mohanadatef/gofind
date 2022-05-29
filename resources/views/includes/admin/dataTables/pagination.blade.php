@@ -31,7 +31,7 @@
                                     <span aria-hidden="true">&laquo;</span>
                                 </a>
                             </li>
-                            <li class="page-item">
+                            <li class="page-item" @empty($paginator->previousPageUrl()) hidden @endempty>
                                 <a class="page-link" href="{{ $paginator->previousPageUrl() . (Request::get('perPage') ? "&perPage=".Request::get('perPage') : "")}}" aria-label="Previous">
 
                                     <span aria-hidden="true">{{$custom[strtolower('last')]??"last"}}</span>
@@ -42,7 +42,7 @@
                                     <a class="page-link" href="{{ $paginator->url($i) . (Request::get('perPage') ? "&perPage=".Request::get('perPage') : "")}}">{{ $i }}</a>
                                 </li>
                             @endfor
-                            <li class="page-item">
+                            <li class="page-item" @empty($paginator->nextPageUrl()) hidden @endempty>
                                 <a class="page-link" href="{{ $paginator->nextPageUrl() . (Request::get('perPage') ? "&perPage=".Request::get('perPage') : "")}}" aria-label="Next">
                                     <span aria-hidden="true">{{$custom[strtolower('next')]??"next"}} </span>
                                 </a>
