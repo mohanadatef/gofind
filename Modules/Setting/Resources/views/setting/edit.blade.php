@@ -186,11 +186,5 @@
     </div>
 @endsection
 @section('script_style')
-    <script>
-        $(function ()  {
-            // Summernote
-            $('#swear').summernote();
-        })
-    </script>
     {!! JsValidator::formRequest('Modules\Setting\Http\Requests\Setting\EditRequest','#edit') !!}
 @endsection

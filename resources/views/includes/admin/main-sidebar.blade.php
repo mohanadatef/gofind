@@ -171,6 +171,14 @@
                                     </a>
                                 </li>
                             @endpermission
+                            @permission('home-slider-index')
+                            <li class="nav-item">
+                                <a href="{{route('home_slider.index')}}" class="nav-link">
+                                    <i class="far fa-dot-circle nav-icon"></i>
+                                    <p>{{$custom[strtolower('home_slider')]??"lang not found"}}</p>
+                                </a>
+                            </li>
+                            @endpermission
                             @permission('translation-list')
                                 <li class="nav-item">
                                     <a href="#" class="nav-link">

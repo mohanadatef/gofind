@@ -21,7 +21,9 @@ trait validationRulesTrait
                 }
                 $rules[$key . '.' . $lang->code] = $rule;
                 $rules[$key . '.' . $lang->code] .= "|string";
-                $rules[$key . '.' . languageLocale()] .= '|required';
+                if (languageLocale() == $lang->code) {
+                    $rules[$key . '.' . languageLocale()] .= '|required';
+                }
             }
         }
         return $rules;

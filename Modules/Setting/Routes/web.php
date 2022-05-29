@@ -34,6 +34,17 @@ Route::group(['middleware' => 'admin', 'auth', 'language'], function () {
             Route::post('/{id}','update')->name('update');
             Route::get('/{id}','show')->name('show');
         });
+        /* home_slider route list */
+        Route::resource('home_slider',HomeSliderController::class,['except'=>['show','update']])
+            ->parameters(['home_slider'=>'id']);
+        Route::controller(HomeSliderController::class)->prefix('/home_slider')->name('home_slider.')->group(function()
+        {
+            Route::get('/change_status/{id}','changeStatus')->name('status');
+            Route::get('/trash','trash')->name('trash');
+            Route::get('/restore/{id}','restore')->name('restore');
+            Route::post('/{id}','update')->name('update');
+            Route::get('/{id}','show')->name('show');
+        });
         /*setting*/
         Route::controller(SettingController::class)->name('setting.')->group(function () {
             Route::get('','edit')->name('edit');

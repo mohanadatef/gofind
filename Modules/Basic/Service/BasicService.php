@@ -22,7 +22,7 @@ class BasicService
     public function changeStatus($id,$key)
     {
         $data=$this->repo->updateValue($id,$key);
-        ActiveLog($data, actionType()['sa'], '');
+        ActiveLog(null, actionType()['sa'], '');
         return $data;
     }
 

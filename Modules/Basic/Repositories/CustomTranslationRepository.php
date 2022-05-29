@@ -53,7 +53,6 @@ class CustomTranslationRepository extends BasicRepository
 
     public function save(Request $request, $id = null)
     {
-        cache()->delete('custom');
         return DB::transaction(function () use ($request, $id) {
             $request->merge(['key'=>strtolower($request->key)]);
             if ($id) {
@@ -62,25 +61,22 @@ class CustomTranslationRepository extends BasicRepository
                 $data = $this->create($request->all());
             }
             $this->updateOrCreateLanguage($data, $request, $this->translationKey());
-            return $data;
+            return $this->findOne($id ?? $data->id);
         });
     }
 
     public function updateValue($id, $key)
     {
-        cache()->delete('custom');
         return $this->change($this->find($id), $key);
     }
 
     public function delete($id)
     {
-        cache()->delete('custom');
         return $this->find($id)->delete();
     }
 
     public function restore($id)
     {
-        cache()->delete('custom');
         return $this->find($id, ['*'], [], true)->restore();
     }
 

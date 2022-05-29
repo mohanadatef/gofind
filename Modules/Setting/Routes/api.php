@@ -2,12 +2,8 @@
 
 use Modules\Setting\Http\Controllers\Api\ContactUsController;
 use Modules\Setting\Http\Controllers\Api\PageController;
+use Modules\Setting\Http\Controllers\Api\HomeSliderController;
 use Modules\Setting\Http\Controllers\Api\SettingController;
-use Modules\Setting\Http\Controllers\Api\FqController;
-use Modules\Setting\Http\Controllers\Api\CancellationController;
-use Modules\Setting\Http\Controllers\Api\ReportController;
-use Modules\Setting\Http\Controllers\Api\NotificationController;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -29,6 +25,10 @@ Route::group(['middleware' => 'api', 'language'], function () {
             //page
             Route::prefix('/page')->group(function () {
                 Route::any('/list', [PageController::class, 'list'])->name('list');
+            });
+            //home_slider
+            Route::prefix('/home_slider')->group(function () {
+                Route::any('/list', [HomeSliderController::class, 'list'])->name('list');
             });
             //setting
             Route::prefix('/setting')->group(function () {
