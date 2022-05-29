@@ -32,13 +32,6 @@ class AppServiceProvider extends ServiceProvider
         Relation::morphMap([
             'user'=>User::class,
         ]);
-        //TODO make notifationServiceProvider
-        try {
-            config(['services.fcm.key' => getValueSetting('fcm_secret_key')??""]);
-
-        }catch (\Exception $exception) {
-            //
-        }
         Blade::if('permission', function ($expression){
             return permissionShow($expression);
         });
