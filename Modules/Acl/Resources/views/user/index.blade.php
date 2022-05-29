@@ -98,7 +98,7 @@
                                                     <button type="button"
                                                             class="btn btn-outline-danger btn-block btn-sm"
                                                             onclick="selectItem({{$data->id}})" data-toggle="modal"
-                                                            data-target="#modal-forgotpassword"><i></i> {{trans('lang.Change_Password')}}
+                                                            data-target="#modal-forgotpassword"><i></i>{{$custom[strtolower('Change_Password')]??""}}
                                                     </button>
                                                     @endpermission
                                                 @endif

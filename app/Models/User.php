@@ -72,19 +72,16 @@ class User extends Authenticatable
         'city_id' => 'required|exists:cities,id',
         'country_id' => 'exists:countries,id',
         'state_id' => 'required|exists:states,id',
+        'info' => 'string|min:3|max:150',
+        'avatar' => 'image|mimes:jpg,jpeg,png,gif',
     ];
 
-    public static $rulesUpdate = [
-        'avatar' => 'image|mimes:jpg,jpeg,png,gif',
-        'info' => 'string|min:3|max:150',
-    ];
 
     protected static $PasswordRules = ['password' => 'required|min:8|confirmed'];
 
     public static function getValidationRules()
     {
-        $rules = array_merge(self::$rules, self::$PasswordRules);
-        return array_merge($rules, self::$rulesUpdate);
+        return array_merge(self::$rules, self::$PasswordRules);
     }
 
     public static function getValidationRulesLogin()
@@ -94,7 +91,7 @@ class User extends Authenticatable
 
     public static function getValidationRulesUpdate()
     {
-        return array_merge(self::$rules, self::$rulesUpdate);
+        return self::$rules;
     }
 
     public function getValidationRulesPassword()

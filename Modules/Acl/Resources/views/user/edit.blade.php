@@ -150,6 +150,13 @@
                                                 <label for="avater">jpg, png, gif</label>
                                             </div>
                                         </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group{{ $errors->has('info') ? ' is-invalid' : "" }}">
+                                                <label for="info">{{$custom[strtolower('info')]??"lang not found"}}</label>
+                                                <textarea type="text" name="info" class="form-control" id="info"
+                                                          placeholder="{{$custom[strtolower('info')]??"lang not found"}}">{{$data->info}}</textarea>
+                                            </div>
+                                        </div>
                                     </div>
                                     <!-- /.form-group -->
                                     <!-- /.col -->
@@ -157,7 +164,7 @@
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit"
-                                            class="btn btn-primary">{{$custom[strtolower('Create')]??""}}</button>
+                                            class="btn btn-primary">{{$custom[strtolower('update')]??""}}</button>
                                 </div>
                             </form>
                         </div>

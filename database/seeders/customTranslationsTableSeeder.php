@@ -155,6 +155,7 @@ class customTranslationsTableSeeder extends Seeder
             ['key' => 'location', 'value' => 'location'],
             ['key' => 'system_data', 'value' => 'system data'],
             ['key' => 'system', 'value' => 'system'],
+            ['key' => 'Change_Password', 'value' => 'Change Password'],
         ];
         foreach ($custom as $value) {
             $data = app()->make(CustomTranslationService::class)->findBy(new Request(['key' => strtolower($value['key'])]), false, false, 10, 'count');
