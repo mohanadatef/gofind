@@ -23,7 +23,7 @@ function languageAll()
  */
 function languageLocale()
 {
-    return App::getLocale();
+    return $code;
 }
 
 /**
