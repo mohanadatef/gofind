@@ -57,5 +57,5 @@ function actionType()
 
 function permissionGroup()
 {
-    return ['syp'=>'system','ap'=>'acl','cp'=>'core_data','sp'=>'setting'];
+    return ['syp'=>'system','ap'=>'acl','cp'=>'core_data','sp'=>'setting','pp'=>'property'];
 }

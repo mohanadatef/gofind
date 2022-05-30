@@ -60,10 +60,10 @@ class PermissionTableSeeder extends Seeder
                 'description' => 'view translation list'
             ],
             [
-                'name' => 'translation list',
+                'name' => 'property',
                 'permission_group' => permissionGroup()['syp'],
-                'display_name' => 'translation list',
-                'description' => 'view translation list'
+                'display_name' => 'property',
+                'description' => 'view property'
             ],
             [
                 'name' => 'location list',

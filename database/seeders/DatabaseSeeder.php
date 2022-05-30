@@ -33,10 +33,12 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionCustomTranslationsTableSeeder::class);
         $this->call(PermissionTableSeeder::class);
         $this->call(UserPermissionTableSeeder::class);
+        $this->call(PropertyPermissionTableSeeder::class);
         $this->call(PermissionPermissionTableSeeder::class);
         $this->call(CityPermissionTableSeeder::class);
         $this->call(StatePermissionTableSeeder::class);
         $this->call(TagPermissionTableSeeder::class);
+        $this->call(PropertyCustomTranslationsTableSeeder::class);
         $this->call(SettingPermissionTableSeeder::class);
         $this->call(LanguagePermissionTableSeeder::class);
         $this->call(CategoryPermissionTableSeeder::class);

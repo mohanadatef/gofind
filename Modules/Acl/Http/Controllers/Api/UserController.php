@@ -16,8 +16,7 @@ class UserController extends BasicController
 
     public function __construct(UserService $Service)
     {
-        $this->middleware('auth:api')->only(['update', 'status', 'account', 'changePassword']);
-        $this->middleware('permission:user-convert-profile')->only(['account']);
+        $this->middleware('auth:api')->only(['update','changePassword']);
         $this->service = $Service;
     }
 
@@ -26,15 +25,6 @@ class UserController extends BasicController
         $data = $this->service->store($request);
         if ($data) {
             return $this->createResponse($data, getCustomTranslation('Register_message'));
-        }
-        return $this->unKnowError();
-    }
-
-    public function verified(Request $request)
-    {
-        $data = $this->service->verified($request);
-        if ($data) {
-            return $this->updateResponse(null, getCustomTranslation('Verify_message'));
         }
         return $this->unKnowError();
     }
@@ -48,23 +38,6 @@ class UserController extends BasicController
         return $this->unKnowError();
     }
 
-    public function listFreelancer(Request $request)
-    {
-        $recursiveRel = [
-            'roles' => [
-                'type' => 'whereHas',
-                'recursive' => [
-                    'permissions' => [
-                        'type' => 'whereHas',
-                        'where' => ['name' => 'offer-create']
-                    ]
-                ]
-            ]
-        ];
-        $request->merge(['status' => activeType()['as'], 'approve' => approveStatusType()['aa']]);
-        return $this->apiResponse($this->service->list($request, $this->pagination(), $this->perPage(),$recursiveRel), getCustomTranslation('Done'));
-    }
-
     public function update(UpdateRequest $request, $id)
     {
         if (user()->id == $id) {
@@ -76,24 +49,6 @@ class UserController extends BasicController
         return $this->unKnowError();
     }
 
-    public function account()
-    {
-        $data = $this->service->convertAccount(user());
-        if ($data) {
-            return $this->updateResponse(new UserProfileResource($data), getCustomTranslation('Done'));
-        }
-        return $this->unKnowError();
-    }
-
-    public function status()
-    {
-        $data = $this->service->changeStatus(user()->id, 'available');
-        if ($data) {
-            return $this->apiResponse([], getCustomTranslation('Done'));
-        }
-        return $this->unKnowError();
-    }
-
     public function changePassword(changePasswordRequest $request)
     {
         $data = $this->service->update($request);
@@ -101,12 +56,5 @@ class UserController extends BasicController
             return $this->updateResponse([], getCustomTranslation('Done'));
         }
         return $this->unKnowError();
-    }
-
-    public function checkUserName(Request $request)
-    {
-        $request->merge(['username'=> $request->username ?? ' ']);
-        $data = $this->service->findBy($request,false,[],'count');
-        return $this->apiResponse($data, getCustomTranslation('Done'));
     }
 }

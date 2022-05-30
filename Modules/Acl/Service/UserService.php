@@ -70,4 +70,14 @@ class UserService extends BasicService
         ActiveLog(null, actionType()['va'], 'user');
         return UserListResource::collection($this->repo->findBy($request, false, [], [], '', ['*'], $pagination, $perPage, $recursiveRel));
     }
+
+    public function profile(Request $request)
+    {
+        $data = $this->repo->findOne($request->id);
+        ActiveLog($data, actionType()['va'], 'user');
+        if ($data) {
+            return $data;
+        }
+        return false;
+    }
 }
