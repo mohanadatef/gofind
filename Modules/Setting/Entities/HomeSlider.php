@@ -27,7 +27,7 @@ class HomeSlider extends Model
     public static $rules = [
         'order' => 'required|numeric|unique:pages',
         'url' => 'required|url',
-        'avatar' => 'required|image|mimes:jpg,jpeg,png,gif',
+        'image' => 'required|image|mimes:jpg,jpeg,png,gif',
     ];
     /**
      * [columns that needs to has customed search such as like or where in]

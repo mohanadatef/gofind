@@ -70,6 +70,13 @@
                                         <input type="text" name="order" class="form-control" id="order"
                                                value="{{Request::old('order')}}" placeholder="{{$custom[strtolower('Enter_Order')]??"lang not found"}}">
                                     </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group{{ $errors->has('image') ? ' has-error' : "" }}">
+                                                <label>{{$custom[strtolower('image')]??'image'}}</label>
+                                                <input type="file" value="" name="image"/>
+                                                <label for="image">jpg, png, gif</label>
+                                            </div>
+                                        </div>
                                     <!-- /.form-group -->
                                     <!-- /.col -->
                                 </div>

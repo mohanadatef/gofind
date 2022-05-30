@@ -67,7 +67,7 @@
                                                 @endpermission
                                                 <td>
                                                 @permission('home-slider-edit')
-                                                    <a href="{{  route('page.edit',$data->id) }}"
+                                                    <a href="{{  route('home_slider.edit',$data->id) }}"
                                                        class="btn btn-outline-primary btn-block btn-sm"><i class="fa fa-edit"></i>{{$custom[strtolower('Edit')]??""}}</a>
                                                     @endpermission
                                                     @permission('home-slider-delete')

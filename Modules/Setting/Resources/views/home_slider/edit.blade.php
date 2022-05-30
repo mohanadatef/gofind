@@ -69,6 +69,14 @@
                                         <input type="text" name="url" class="form-control" id="url"
                                                value="{{$data->url}}" placeholder="{{$custom[strtolower('Enter_url')]??"lang not found"}}">
                                     </div>
+                                        <div class="col-md-6">
+                                            <img src="{{getFile($data->image->file,pathType()['ip'], getFileNameServer($data->image))}}"
+                                                 style="width:100px;height: 100px">                                            <div class="form-group{{ $errors->has('image') ? ' has-error' : "" }}">
+                                                <label>{{$custom[strtolower('image')]??'image'}}</label>
+                                                <input type="file" value="" name="image"/>
+                                                <label for="image">jpg, png, gif</label>
+                                            </div>
+                                        </div>
                                     <!-- /.form-group -->
                                     <!-- /.col -->
                                 </div>
