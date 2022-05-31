@@ -5,6 +5,7 @@ namespace Modules\Acl\Http\Resources\User;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Modules\Acl\Http\Resources\Role\RoleResource;
 use Modules\CoreData\Http\Resources\City\CityListResource;
+use Modules\CoreData\Http\Resources\Country\CountryListResource;
 use Modules\CoreData\Http\Resources\State\StateListResource;
 
 class UserProfileResource extends JsonResource
@@ -21,6 +22,7 @@ class UserProfileResource extends JsonResource
             'info' => $this->info,
             'avatar' => getImag($this->avatar,'user',$this->id),
             'city' => new CityListResource($this->city),
+            'country' => new CountryListResource($this->country),
             'state' => new StateListResource($this->state),
         ];
     }

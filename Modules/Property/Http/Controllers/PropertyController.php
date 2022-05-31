@@ -3,17 +3,21 @@
 namespace Modules\Property\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Modules\Acl\Service\UserService;
 use Modules\Basic\Http\Controllers\BasicController;
+use Modules\Property\Http\Requests\Property\CreateRequest;
+use Modules\Property\Http\Requests\Property\EditRequest;
+use Modules\Property\Service\PropertyService;
 
 class PropertyController extends BasicController
 {
-    protected $service;
+    protected $service,$userService;
     /**
      * @extends BasicController
      * controller property about web function
      * @required property login
      */
-    public function __construct(PropertyService $Service)
+    public function __construct(PropertyService $Service,UserService $userService)
     {
         $this->middleware('auth');
         $this->middleware('permission:property-index')->only('index');
@@ -24,6 +28,7 @@ class PropertyController extends BasicController
         $this->middleware('permission:property-restore')->only('restore');
         $this->middleware('permission:property-remove')->only('remove');
         $this->service = $Service;
+        $this->userService = $userService;
     }
 
     /**
@@ -50,7 +55,19 @@ class PropertyController extends BasicController
 
     public function create()
     {
-        return view(checkView('property::property.create'));
+        $recursiveRel = [
+            'role' => [
+                'type' => 'whereHas',
+                'recursive' => [
+                    'permission' => [
+                        'type' => 'whereHas',
+                        'where' => ['name' => 'property-create']
+                    ]
+                ]
+            ]
+        ];
+        $users = $this->userService->findBy(new Request(),false,[],'',['*'],false,10,$recursiveRel);
+        return view(checkView('property::property.create'),compact('users'));
     }
 
     public function store(CreateRequest $request)
@@ -66,8 +83,20 @@ class PropertyController extends BasicController
     public function edit($id)
     {
         $data = $this->service->show($id);
-        ActiveLog($data, actionType()['va'], 'role');
-        return view(checkView('property::property.edit'),compact('data'));
+        $recursiveRel = [
+            'role' => [
+                'type' => 'whereHas',
+                'recursive' => [
+                    'permission' => [
+                        'type' => 'whereHas',
+                        'where' => ['name' => 'property-create']
+                    ]
+                ]
+            ]
+        ];
+        $users = $this->userService->findBy(new Request(),false,[],'',['*'],false,10,$recursiveRel);
+        ActiveLog($data, actionType()['va'], 'property');
+        return view(checkView('property::property.edit'),compact('data','users'));
     }
 
     public function update(EditRequest $request, $id)

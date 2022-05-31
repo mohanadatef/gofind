@@ -29,7 +29,9 @@ class Property extends Model
      */
     protected $with = [];
 
-    public $searchRelationShip = [];
+    public $searchRelationShip = [
+        'tag_id'=>'tag->id'
+    ];
 
     use SoftDeletes;
 
@@ -44,10 +46,11 @@ class Property extends Model
 
     public static $rules = [
         'name' => 'required|min:2|max:50|string',
-        'order' => 'numeric',
+        'order' => 'numeric|nullable',
         'city_id' => 'required|exists:cities,id',
         'user_id' => 'required|exists:users,id',
         'country_id' => 'required|exists:countries,id',
+        'category_id' => 'required|exists:categories,id',
         'state_id' => 'required|exists:states,id',
         'info' => 'required|string|min:3|max:150',
         'image' => 'required|image|mimes:jpg,jpeg,png,gif',
@@ -100,7 +103,7 @@ class Property extends Model
 
     public function tag()
     {
-        return $this->belongsToMany(Tag::Class, 'role_tags');
+        return $this->belongsToMany(Tag::Class, 'property_tags');
     }
 
     public function property_tag()

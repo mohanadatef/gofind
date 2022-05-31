@@ -8,20 +8,36 @@
         </div>
     </div>
     <!-- /.card-header -->
-    <form action="{{route('user.index')}}" method="get">
+    <form action="{{route('property.index')}}" method="get">
         <div class="card-body" id="filter" style="display: none">
             <div class="row">
                 <!-- /.col -->
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label>{{$custom[strtolower('role')]??"lang not found"}}</label>
-                        <select class="form-control select2" multiple="multiple" id="role_id"
-                                name="role_id[]"
+                        <label>{{$custom[strtolower('category')]??"lang not found"}}</label>
+                        <select class="form-control select2" multiple="multiple" id="category"
+                                name="category_id[]"
                                 data-placeholder="{{$custom[strtolower('select')]??"lang not found"}}">
-                            @foreach($role as $my)
+                            @foreach($category as $my)
                                 <option value="{{$my->id}}"
-                                        id="option-role-{{$my->id}}"
-                                        @if(Request::get('role_id') && in_array($my->id,Request::get('role_id'))) selected @endif>{{$my->name->value ?? ""}}</option>
+                                        id="option-category-{{$my->id}}"
+                                        @if(Request::get('category_id') && in_array($my->id,Request::get('category_id'))) selected @endif>{{$my->name->value ?? ""}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <!-- /.form-group -->
+                </div>
+                <!-- /.col -->
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>{{$custom[strtolower('tag')]??"lang not found"}}</label>
+                        <select class="form-control select2" multiple="multiple" id="tag"
+                                name="tag_id[]"
+                                data-placeholder="{{$custom[strtolower('select')]??"lang not found"}}">
+                            @foreach($tag as $my)
+                                <option value="{{$my->id}}"
+                                        id="option-tag-{{$my->id}}"
+                                        @if(Request::get('tag_id') && in_array($my->id,Request::get('tag_id'))) selected @endif>{{$my->name->value ?? ""}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -90,7 +106,7 @@
                 <!-- /.col -->
             </div>
             <button type="submit" class="btn btn-primary">{{$custom[strtolower('filter')]??"lang not found"}}</button>
-            <a href="{{  route('user.index') }}" class="btn btn-success"> {{$custom[strtolower('remove_filter')]??"lang not found"}}</a>
+            <a href="{{  route('property.index') }}" class="btn btn-success"> {{$custom[strtolower('remove_filter')]??"lang not found"}}</a>
         </div>
     </form>
 </div>

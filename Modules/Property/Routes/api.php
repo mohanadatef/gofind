@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-
+use Modules\Property\Http\Controllers\PropertyController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,6 +13,12 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/property', function (Request $request) {
-    return $request->user();
+Route::group(['middleware' => 'api', 'language'], function () {
+    Route::name('api.')->group(function () {
+        Route::group(['middleware' => 'auth:api'], function () {
+            Route::prefix('/property')->name('property.')->group(function () {
+                Route::any('list', [PropertyController::class, 'list'])->name('list');
+            });
+        });
+    });
 });

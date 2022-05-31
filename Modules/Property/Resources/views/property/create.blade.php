@@ -1,6 +1,6 @@
 @extends('includes.admin.master_admin')
 @section('title')
-    {{$custom[strtolower('Edit')]??"lang not found"}}
+    {{$custom[strtolower('Create')]??"lang not found"}}
 @endsection
 @section('head_style')
     @include('includes.admin.dataTables.head_DataTables')
@@ -12,13 +12,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>{{$custom[strtolower('user')]??""}}</h1>
+                        <h1>{{$custom[strtolower('property')]??""}}</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a
                                     href="{{route('admin.dashboard')}}">{{$custom[strtolower('Home')]??""}}</a></li>
-                            <li class="breadcrumb-item active">{{$custom[strtolower('user')]??""}}</li>
+                            <li class="breadcrumb-item active">{{$custom[strtolower('property')]??""}}</li>
                         </ol>
                     </div>
                 </div>
@@ -34,41 +34,23 @@
                         <!-- jquery validation -->
                         <div class="card card-primary">
                             <div class="card-header">
-                                {{$custom[strtolower('edit')]??""}}
+                                {{$custom[strtolower('Create')]??""}}
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
                             @include('errors.error')
-                            <form action="{{route('user.update',$data->id)}}" method="post" id="create"
+                            <form action="{{route('property.store')}}" method="post" id="create"
                                   enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group{{ $errors->has('fullname') ? ' is-invalid' : "" }}">
+                                            <div class="form-group{{ $errors->has('name') ? ' is-invalid' : "" }}">
                                                 <label
-                                                    for="fullname">{{$custom[strtolower('fullname')]??"lang not found"}}</label>
-                                                <input type="text" name="fullname" class="form-control" id="fullname"
-                                                       value="{{$data->fullname}}"
-                                                       placeholder="{{$custom[strtolower('Enter_fullname')]??"lang not found"}}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group{{ $errors->has('email') ? ' is-invalid' : "" }}">
-                                                <label
-                                                    for="email">{{$custom[strtolower('email')]??"lang not found"}}</label>
-                                                <input type="email" name="email" class="form-control" id="email"
-                                                       value="{{$data->email}}"
-                                                       placeholder="{{$custom[strtolower('Enter_email')]??"lang not found"}}">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group{{ $errors->has('mobile') ? ' is-invalid' : "" }}">
-                                                <label
-                                                    for="mobile">{{$custom[strtolower('mobile')]??"lang not found"}}</label>
-                                                <input type="text" name="mobile" class="form-control" id="mobile"
-                                                       value="{{$data->mobile}}"
-                                                       placeholder="{{$custom[strtolower('Enter_mobile')]??"lang not found"}}">
+                                                    for="name">{{$custom[strtolower('name')]??"lang not found"}}</label>
+                                                <input type="text" name="name" class="form-control" id="name"
+                                                       value="{{Request::old('name')}}"
+                                                       placeholder="{{$custom[strtolower('Enter_name')]??"lang not found"}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -76,37 +58,62 @@
                                                 <label
                                                     for="order">{{$custom[strtolower('order')]??"lang not found"}}</label>
                                                 <input type="text" name="order" class="form-control" id="order"
-                                                       value="{{$data->order}}"
+                                                       value="{{Request::old('order')}}"
                                                        placeholder="{{$custom[strtolower('Enter_order')]??"lang not found"}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div class="form-group{{ $errors->has('role_id') ? ' is-invalid' : "" }}">
-                                                <label>{{$custom[strtolower('role')]??"lang not found"}}</label>
-                                                <select class="form-control " id="role" name="role_id"
+                                            <div class="form-group{{ $errors->has('user_id') ? ' is-invalid' : "" }}">
+                                                <label>{{$custom[strtolower('user')]??"lang not found"}}</label>
+                                                <select class="form-control " id="user_id" name="user_id"
                                                         style="width: 100%;">
                                                     <option value="0"
-                                                            id="option-role-0">{{$custom[strtolower('select')]??"lang not found"}}</option>
-                                                    @foreach($role as $my)
+                                                            id="option-city-0">{{$custom[strtolower('select')]??"lang not found"}}</option>
+                                                @foreach($users as $my)
                                                         <option value="{{$my->id}}"
-                                                                id="option-role-{{$my->id}}"
-                                                                @if($data->role_id = $my->id) selected @endif>{{$my->name->value ?? ""}}</option>
+                                                                id="option-user-{{$my->id}}">{{$my->fullname ?? ""}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <div
-                                                class="form-group{{ $errors->has('country_id') ? ' is-invalid' : "" }}">
+                                            <div class="form-group{{ $errors->has('category_id') ? ' is-invalid' : "" }}">
+                                                <label>{{$custom[strtolower('category')]??"lang not found"}}</label>
+                                                <select class="form-control " id="category_id" name="category_id"
+                                                        style="width: 100%;">
+                                                    <option value="0"
+                                                            id="option-city-0">{{$custom[strtolower('select')]??"lang not found"}}</option>
+                                                    @foreach($category as $my)
+                                                        <option value="{{$my->id}}"
+                                                                id="option-category-{{$my->id}}">{{$my->name->value ?? ""}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group{{ $errors->has('tag_id') ? ' is-invalid' : "" }}">
+                                                <label>{{$custom[strtolower('tag')]??"lang not found"}}</label>
+                                                <select class="form-control " id="tag_id" name="tag_id[]" multiple="multiple"
+                                                        style="width: 100%;">
+                                                    <option value="0"
+                                                            id="option-city-0">{{$custom[strtolower('select')]??"lang not found"}}</option>
+                                                    @foreach($tag as $my)
+                                                        <option value="{{$my->id}}"
+                                                                id="option-tag-{{$my->id}}">{{$my->name->value ?? ""}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group{{ $errors->has('country_id') ? ' is-invalid' : "" }}">
                                                 <label>{{$custom[strtolower('Country')]??"lang not found"}}</label>
                                                 <select class="form-control " id="country_id" name="country_id"
                                                         style="width: 100%;">
                                                     <option value="0"
-                                                            id="option-country-0">{{$custom[strtolower('select')]??"lang not found"}}</option>
+                                                            id="option-city-0">{{$custom[strtolower('select')]??"lang not found"}}</option>
                                                     @foreach($country as $my)
                                                         <option value="{{$my->id}}"
-                                                                id="option-country-{{$my->id}}"
-                                                                @if($data->country_id = $my->id) selected @endif>{{$my->name->value ?? ""}}</option>
+                                                                id="option-country-{{$my->id}}">{{$my->name->value ?? ""}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -118,11 +125,6 @@
                                                         style="width: 100%;">
                                                     <option value="0"
                                                             id="option-city-0">{{$custom[strtolower('select')]??"lang not found"}}</option>
-                                                    @foreach($city as $my)
-                                                        <option value="{{$my->id}}"
-                                                                id="option-city-{{$my->id}}"
-                                                                @if($data->city_id = $my->id) selected @endif>{{$my->name->value ?? ""}}</option>
-                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -133,28 +135,21 @@
                                                         style="width: 100%;">
                                                     <option value="0"
                                                             id="option-state-0">{{$custom[strtolower('select')]??"lang not found"}}</option>
-                                                    @foreach($state as $my)
-                                                        <option value="{{$my->id}}"
-                                                                id="option-state-{{$my->id}}"
-                                                                @if($data->state_id = $my->id) selected @endif>{{$my->name->value ?? ""}}</option>
-                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
-                                            <img src="{{getImag($data->avatar,'user',$data->id)}}"
-                                                 style="width:100px;height: 100px">
-                                            <div class="form-group{{ $errors->has('avater') ? ' has-error' : "" }}">
-                                                <label>{{$custom[strtolower('avater')]??'avater'}}</label>
-                                                <input type="file" value="" name="avater"/>
-                                                <label for="avater">jpg, png, gif</label>
+                                            <div class="form-group{{ $errors->has('image') ? ' has-error' : "" }}">
+                                                <label>{{$custom[strtolower('image')]??'image'}}</label>
+                                                <input type="file" value="" name="image"/>
+                                                <label for="image">jpg, png, gif</label>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group{{ $errors->has('info') ? ' is-invalid' : "" }}">
                                                 <label for="info">{{$custom[strtolower('info')]??"lang not found"}}</label>
                                                 <textarea type="text" name="info" class="form-control" id="info"
-                                                          placeholder="{{$custom[strtolower('info')]??"lang not found"}}">{{$data->info}}</textarea>
+                                                          placeholder="{{$custom[strtolower('info')]??"lang not found"}}"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -164,13 +159,18 @@
                                 <!-- /.card-body -->
                                 <div class="card-footer">
                                     <button type="submit"
-                                            class="btn btn-primary">{{$custom[strtolower('update')]??""}}</button>
+                                            class="btn btn-primary">{{$custom[strtolower('Create')]??""}}</button>
                                 </div>
                             </form>
                         </div>
                         <!-- /.card -->
                     </div>
                     <!--/.col (left) -->
+                    <!-- right column -->
+                    <div class="col-md-6">
+
+                    </div>
+                    <!--/.col (right) -->
                 </div>
                 <!-- /.row -->
             </div><!-- /.container-fluid -->
@@ -184,6 +184,7 @@
         $('#country_id').change(function () {
             GetCity($(this).val(), 0);
         });
+
         function GetCity(country, city) {
             url = '{{ route("city.list") }}';
             $.ajax({
@@ -215,6 +216,7 @@
         $('#city_id').change(function () {
             GetState($(this).val(), 0);
         });
+
         function GetState(city,state) {
             url = '{{ route("state.list") }}';
             $.ajax({
@@ -244,5 +246,5 @@
             });
         }
     </script>
-    {!! JsValidator::formRequest('Modules\Acl\Http\Requests\User\EditRequest','#edit') !!}
+    {!! JsValidator::formRequest('Modules\Property\Http\Requests\Property\CreateRequest','#create') !!}
 @endsection

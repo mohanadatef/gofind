@@ -21,7 +21,6 @@ class CreatePropertiesTable extends Migration
             $table->integer('status')->default(1);
             $table->string('info')->nullable();
             $table->string('order')->nullable();
-            $table->string('info')->nullable();
             $table->string('count_view')->nullable();
             $table->integer('country_id')->unsigned()->index();
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');

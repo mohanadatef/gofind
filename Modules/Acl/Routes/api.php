@@ -5,7 +5,6 @@ use Modules\Acl\Http\Controllers\Api\UserController;
 use Modules\Acl\Http\Controllers\Api\RoleController;
 use Modules\Acl\Http\Controllers\Api\PermissionController;
 use Modules\Acl\Http\Controllers\Api\ForgetPasswordController;
-use Modules\Acl\Http\Controllers\Api\RegisterMobileController;
 use Modules\Acl\Http\Controllers\Api\FavouriteController;
 
 /*
