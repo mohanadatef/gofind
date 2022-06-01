@@ -1,0 +1,2165 @@
+{
+	"info": {
+		"_postman_id": "e78910eb-03b9-4aa2-b032-ca7293fd34ff",
+		"name": "gofind",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19619625"
+	},
+	"item": [
+		{
+			"name": "acl",
+			"item": [
+				{
+					"name": "Forget Password",
+					"item": [
+						{
+							"name": "check email",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "mobile",
+											"value": "201011666755",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/forget_password/cheek",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"forget_password",
+										"cheek"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "check code",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "code",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{ip}}/api/forget_password/code",
+									"host": [
+										"{{ip}}"
+									],
+									"path": [
+										"api",
+										"forget_password",
+										"code"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user_id",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{ip}}/api/forget_password/change_password",
+									"host": [
+										"{{ip}}"
+									],
+									"path": [
+										"api",
+										"forget_password",
+										"change_password"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "check mobile",
+					"item": [
+						{
+							"name": "check mobile",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "mobile",
+											"value": "96659203119",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/check_mobile/cheek",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"check_mobile",
+										"cheek"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "resend code",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "mobile",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/check_mobile/resend",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"check_mobile",
+										"resend"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "check code",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "code",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "mobile",
+											"value": "966111111111",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/check_mobile/code",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"check_mobile",
+										"code"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "user",
+					"item": [
+						{
+							"name": "profile",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/gofind/api/user/profile?id=2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"gofind",
+										"api",
+										"user",
+										"profile"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "2"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "list",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost/gofind/api/user/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"path": [
+										"gofind",
+										"api",
+										"user",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "fullname",
+											"value": "test",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "email",
+											"value": "111@q.com",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "country_id",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "city_id",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "state_id",
+											"value": "1",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "avatar",
+											"type": "file",
+											"src": [],
+											"disabled": true
+										},
+										{
+											"key": "info",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "tag[]",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/user/update/17",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"update",
+										"17"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "change password",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "password",
+											"value": "123456789",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/user/change/password/2",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"user",
+										"change",
+										"password",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "role",
+					"item": [
+						{
+							"name": "list role",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/role/list",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"role",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "permission",
+					"item": [
+						{
+							"name": "list permission",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/permission/list",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"permission",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "login",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "lang",
+										"value": "ar",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "m.atef@lun.sa1211111121",
+											"description": "email or mobile or name",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"description": "password",
+											"type": "text"
+										},
+										{
+											"key": "device_token",
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/auth/login",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get user by token",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/api/auth/get_user",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"get_user"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "fullname",
+											"value": "Heba",
+											"description": "min 2 & max 50",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "Heba@lun.sa",
+											"description": "only email",
+											"type": "text"
+										},
+										{
+											"key": "mobile",
+											"value": "010055858565",
+											"description": "only number and 12 ",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345678",
+											"description": "8",
+											"type": "text"
+										},
+										{
+											"key": "country_id",
+											"value": "1",
+											"description": "id country",
+											"type": "text"
+										},
+										{
+											"key": "city_id",
+											"value": "1",
+											"description": "id city",
+											"type": "text"
+										},
+										{
+											"key": "state_id",
+											"value": "1",
+											"description": "id state",
+											"type": "text"
+										},
+										{
+											"key": "category",
+											"value": "1",
+											"description": "id category mulite",
+											"type": "text"
+										},
+										{
+											"key": "tag[]",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "info",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "avater",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/auth/register",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "logout",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOTU5ZmMzMWU3OTQ5ZTJhYjE0ZmMzOTgzYTQ2ZTUzNzAyNjkwNzk3YWUyYzljMGYzMGMwZGEwYjMzZjk1NjM3MjkxMTUwOGJmODVlM2M1NGYiLCJpYXQiOjE2NTAyODM2NjguODQ1NDM4LCJuYmYiOjE2NTAyODM2NjguODQ1NDQ0LCJleHAiOjE2ODE4MTk2NjguODMyMDEsInN1YiI6IjMiLCJzY29wZXMiOltdfQ.qZGOCcorLmP-ipxIB1VKc9Rh2_tieXNadYCwWPN6FBawuIBZzzHaQAC3nNKvLNX5GDhWRGQNnwOFQDkRAqkXxtunXxfYWytZOJcTqgeqvT18PhY_hgrTiJGgEiArRg4UDLqZFAEI4Vy0W5NuXkGWYRs29D9tRHbTE_o_Hx2kNa40k3UbOjHPQDdRp4JXZhZnneJicuiXQRZ2VhlJ23Lhu-ZIYaa2d8RRq1m2EPpn4brIMIXmu6-VXxK3Ksw9l_-KolE7ESnaZM3WsvRklcAUN2-GRVPyACRWooiI3e2TF1_toGonD0rNleQIN46Y_S6QuswD40aufokZiQV75EWRTuENObkC7kO4C5Acn0BZlQnhAS2KPL0chY3Hyg9P3F21JoK6F4A6cj1ckv8N3BVIrkblWr3s8SzWFrtEaq1a4AV_Z-7G2KEKbRwyLfa4YOk5sjmkZnzF90zCoSZCkCScK3ogsP8qmAhFiw40dcDqPWsxsJYzxrdRSxm4i_tRQoDPqbXOUcoH8bBDqno3hLxO1EeZkjAVOgLyRIvRTQ9piOZliB-WugUWtFgtAHDujy0IMvkw5wLG6adTHp-fOTq5zvls_1GkO_HYpEWLY_zuBU6IP1F6onaW2ypzCqGpf6ckjpS6lbFa5UBz2qCWXboXrmvESCn5pNTqEq3jnKN801E",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "device_token",
+											"value": "fCpoVWiQ5sLkd7Bc3QHo48:APA91bENemt6XeAG5zFEEULjftnrjf20rfYriWVtBRS_raeCuOq0uEklKPQRBnf9KbJs79HmDi4fiIof4MgAeuy3RqZlel4iSZKcH8-tacTEjSWw7qWwpI3hm_gRhLwkxw57eAkEShCb",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/auth/logout",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "core data",
+			"item": [
+				{
+					"name": "country",
+					"item": [
+						{
+							"name": "list country",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/coredata/country/list",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"coredata",
+										"country",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "custom translation",
+					"item": [
+						{
+							"name": "list custom translation",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/basic/custom_translation/list",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"basic",
+										"custom_translation",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "city",
+					"item": [
+						{
+							"name": "list city",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/coredata/city/list?country_id=1",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"coredata",
+										"city",
+										"list"
+									],
+									"query": [
+										{
+											"key": "country_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "state",
+					"item": [
+						{
+							"name": "list state",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "country_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{ip}}/api/coredata/state/list?country_id=&city_id=",
+									"host": [
+										"{{ip}}"
+									],
+									"path": [
+										"api",
+										"coredata",
+										"state",
+										"list"
+									],
+									"query": [
+										{
+											"key": "country_id",
+											"value": "",
+											"description": "country id"
+										},
+										{
+											"key": "city_id",
+											"value": "",
+											"description": "city id"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Category",
+					"item": [
+						{
+							"name": "list Category",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"url": {
+									"raw": "{{server}}/api/coredata/category/list",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"coredata",
+										"category",
+										"list"
+									],
+									"query": [
+										{
+											"key": "parent_id",
+											"value": "",
+											"description": "if went all childe",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "tag",
+					"item": [
+						{
+							"name": "search tag",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/coredata/tag/search?name=",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"coredata",
+										"tag",
+										"search"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Language",
+					"item": [
+						{
+							"name": "list Language",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "country_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{ip}}/api/coredata/language/list",
+									"host": [
+										"{{ip}}"
+									],
+									"path": [
+										"api",
+										"coredata",
+										"language",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "core data",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "model[0]",
+									"value": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/api/coredata?model=",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"coredata"
+							],
+							"query": [
+								{
+									"key": "model",
+									"value": ""
+								},
+								{
+									"key": "country_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "city_id",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "setting",
+			"item": [
+				{
+					"name": "contact us",
+					"item": [
+						{
+							"name": "store",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "subject",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "description",
+											"value": "",
+											"type": "text"
+										},
+										{
+											"key": "mobile",
+											"value": "",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/setting/contact_us/store",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"contact_us",
+										"store"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "page",
+					"item": [
+						{
+							"name": "list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/api/setting/page/list",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"page",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "setting",
+					"item": [
+						{
+							"name": "list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/api/setting/setting/list",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"setting",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Home List",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "home",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/setting/setting/list",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"setting",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "list",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/api/setting/setting/list",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"setting",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "f & q",
+					"item": [
+						{
+							"name": "list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/api/setting/fq/list",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"fq",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "cancellation",
+					"item": [
+						{
+							"name": "list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/api/setting/cancellation/list",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"cancellation",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Notification",
+					"item": [
+						{
+							"name": "List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzY2YmY4YzYyZTIwODZiOGJjYWRjYzU2N2MyMzFlYTg0ZDA4OWFlYTllNzQ1OWRiODJlOWQzM2VlMGVkYzA1MTMwNThiYWVhY2IxZjc1OTciLCJpYXQiOjE2NTE5MTk5OTAuMzM5MDUzLCJuYmYiOjE2NTE5MTk5OTAuMzM5MDcxLCJleHAiOjE2ODM0NTU5OTAuMzE0NDkzLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.RU1w_Sr9lHpvWze4rJnq5nE_LHGTLotdaSrR4Agp8QZRSRDdNoVX_3q4IH9rmzb6LO2X1vc_6LKNaGTIEAcWjVon-SsPOm3CPLnJQZbNfL7aYzo9DJwlotlHz5RUxoHK18qeAAffv3umh2ZNDzUYY2kGB77hA4zUYrcKxRwVwduBeZHH_hAxjgE71iX9xLCXOAJ_aVnX6wmAZ5QaophS66MUiccgeP5HlIXhUcWTbThWUZzqqwN90ZxU_jEIl-IcQlRXIv-Weqc7uRZNk5hRGS2u-0sSgOzBn3IWEkWKz4E-Jku9kPblu4RtCdbVH7brbKSz5zPEsZtk0t-mOJqTLz8hQkbowNbFmKte3t94cymgnnB0jJ9FH26Dlp-RxUNzKX3hgPz4f2Ro98zSDe0SuCR0mHfToIzoSg4i-EOS-Ew610scUZDfFDXuryfjDeofNdaGtxVp54PGJyliCsjJvMvlb_fTNbdv-gBlIRR1chgUUXtfF_y8LRSLkObuyS-4D_ThfUJjsIHbaYShlW0dYRWLPazvj_aZCPsnsuE2GdJ6ok6vHre9WinUxC3a_MxgBi-VcvOw6QpuW5Wuao5umogeY3LFHyqL-tSUVUziZOxm7tDghEHvVnr_mq0CRnoVP0mt72ZqiFZn3X1Mt6wyyDZVkp284juh0NOiSG6A2Tg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/setting/notification/list",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"notification",
+										"list"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "List",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{server}}/api/setting/notification/list",
+											"host": [
+												"{{server}}"
+											],
+											"path": [
+												"api",
+												"setting",
+												"notification",
+												"list"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Sat, 07 May 2022 10:46:20 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.52 (Win64) OpenSSL/1.1.1m PHP/7.4.27"
+										},
+										{
+											"key": "Vary",
+											"value": "Authorization"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.4.27"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache, private"
+										},
+										{
+											"key": "X-RateLimit-Limit",
+											"value": "60"
+										},
+										{
+											"key": "X-RateLimit-Remaining",
+											"value": "59"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1483"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"data\": [\n        {\n            \"id\": 7,\n            \"created_at\": \"23 Minute\",\n            \"title\": \"There is user need to approve\",\n            \"description\": \"user 1 need to approve\",\n            \"notifiable_type\": \"App\\\\Models\\\\User\",\n            \"notifiable_id\": 2,\n            \"pusher\": null,\n            \"receiver\": {\n                \"id\": 2,\n                \"username\": \"heba1222111\",\n                \"fullname\": \"heba\",\n                \"email\": \"heba@lun.sa111\",\n                \"mobile\": \"201115322000\",\n                \"role\": \"freelancer\",\n                \"available\": 1,\n                \"nationality_number\": null,\n                \"tax_number\": null,\n                \"commercial_number\": null,\n                \"job_name_id\": {\n                    \"id\": 1,\n                    \"name\": \"backend\"\n                },\n                \"description\": null,\n                \"info\": null,\n                \"avatar\": \"http://localhost/shogol-backend/public/images/test.png\",\n                \"gender\": {\n                    \"id\": 1,\n                    \"name\": \"ذكر\"\n                },\n                \"nationality\": {\n                    \"id\": 1,\n                    \"name\": \"سعودي\",\n                    \"logo\": \"\"\n                },\n                \"category\": [],\n                \"country\": {\n                    \"id\": 1,\n                    \"name\": \"السعودية\"\n                },\n                \"city\": {\n                    \"id\": 1,\n                    \"name\": \"الرياض\",\n                    \"country\": {\n                        \"id\": 1,\n                        \"name\": \"السعودية\"\n                    }\n                },\n                \"state\": {\n                    \"id\": 1,\n                    \"name\": \"منطقه الرياض\",\n                    \"country\": {\n                        \"id\": 1,\n                        \"name\": \"السعودية\"\n                    },\n                    \"city\": {\n                        \"id\": 1,\n                        \"name\": \"الرياض\",\n                        \"country\": {\n                            \"id\": 1,\n                            \"name\": \"السعودية\"\n                        }\n                    }\n                },\n                \"language\": [],\n                \"skill\": [],\n                \"certificate\": [],\n                \"document\": [],\n                \"social\": [],\n                \"complete_profile\": 61,\n                \"profile_validation\": 1,\n                \"reverse\": [\n                    {\n                        \"title\": \"email approve\",\n                        \"status\": 1\n                    },\n                    {\n                        \"title\": \"mobile approve\",\n                        \"status\": 1\n                    }\n                ],\n                \"rate\": {\n                    \"rate\": 2,\n                    \"count\": 32\n                }\n            }\n        }\n    ],\n    \"status\": 1,\n    \"message\": \"Done\",\n    \"pagination\": []\n}"
+								}
+							]
+						},
+						{
+							"name": "read",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzY2YmY4YzYyZTIwODZiOGJjYWRjYzU2N2MyMzFlYTg0ZDA4OWFlYTllNzQ1OWRiODJlOWQzM2VlMGVkYzA1MTMwNThiYWVhY2IxZjc1OTciLCJpYXQiOjE2NTE5MTk5OTAuMzM5MDUzLCJuYmYiOjE2NTE5MTk5OTAuMzM5MDcxLCJleHAiOjE2ODM0NTU5OTAuMzE0NDkzLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.RU1w_Sr9lHpvWze4rJnq5nE_LHGTLotdaSrR4Agp8QZRSRDdNoVX_3q4IH9rmzb6LO2X1vc_6LKNaGTIEAcWjVon-SsPOm3CPLnJQZbNfL7aYzo9DJwlotlHz5RUxoHK18qeAAffv3umh2ZNDzUYY2kGB77hA4zUYrcKxRwVwduBeZHH_hAxjgE71iX9xLCXOAJ_aVnX6wmAZ5QaophS66MUiccgeP5HlIXhUcWTbThWUZzqqwN90ZxU_jEIl-IcQlRXIv-Weqc7uRZNk5hRGS2u-0sSgOzBn3IWEkWKz4E-Jku9kPblu4RtCdbVH7brbKSz5zPEsZtk0t-mOJqTLz8hQkbowNbFmKte3t94cymgnnB0jJ9FH26Dlp-RxUNzKX3hgPz4f2Ro98zSDe0SuCR0mHfToIzoSg4i-EOS-Ew610scUZDfFDXuryfjDeofNdaGtxVp54PGJyliCsjJvMvlb_fTNbdv-gBlIRR1chgUUXtfF_y8LRSLkObuyS-4D_ThfUJjsIHbaYShlW0dYRWLPazvj_aZCPsnsuE2GdJ6ok6vHre9WinUxC3a_MxgBi-VcvOw6QpuW5Wuao5umogeY3LFHyqL-tSUVUziZOxm7tDghEHvVnr_mq0CRnoVP0mt72ZqiFZn3X1Mt6wyyDZVkp284juh0NOiSG6A2Tg",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/setting/notification/list",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"notification",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Report",
+					"item": [
+						{
+							"name": "save Report",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": ""
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Review",
+					"item": [
+						{
+							"name": "store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTFkM2Q3MmNlYjk2MDQ4ZWExM2Q4MTc5NTRjMDgwOGNhOGYzMTIxOWY1OGZjZjcwOWYyYjFhNTJmYjIyMGUxOTE4ZDdkMjNmNTI5MWE2ZTQiLCJpYXQiOjE2NTMxODgzNTcuODIwMzg5LCJuYmYiOjE2NTMxODgzNTcuODIwNDAxLCJleHAiOjE2ODQ3MjQzNTcuNTYyMjgzLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.NB_VkNbbrm7VSWF6ay9bFKJOLIafdRv9rx10T6SKOsIdp2MO6ia9Lveg_qokEiZp2LSa2H-ntOTF4mnCsJHQl4WJczSugNh6oC6Rg33fTozOOOVb1kyg5MClGfYA709H-ixY1yQh6zPPyxU6h6J8FHTSM753kNqoTheiyNtTwkLp-OT3v0ohH-H1Ced2h-btg2Q6lh3Xg0QwhJH43rzguPgRdyHPGD3XV47mnLF23S9caab-KClwsF2sAI3BU_nQWi9s3a6uWJLPHb9N_ah_TtClc0hbDodcvZXgNMNjfQmNfvZyGqv66PijieEmqwR2t-QIficWOjV2p9XkSTAD9TOseHwf2syZzcaukNNiJdP47pPT5L-W6nQreSEhTvskol4Lit_eAl7oNM9dcF3adUQwBQcIqhOJmOd_zxIklyxyftw-oPvm0j1eQpn8OjWLiBHGz69k60nMoUMEQnBeCgtlcz39AxzWmv8wy3ntJtBupIyNAJAlJs7zCt8GCVbWIKWakpyDdffCvMyxClJcdpuvJprs6DuDCbTLfZ3BfNtUXRK1HA6vtIFlFeFFM2bMv_YPR1NRRKPLby0K4PPcD-0HoznLwKdjMh82h8OwMIZSfVvfw9GFlYy6oV6oVuhjuNe_D6gnWgl1gReV5IxtJXKqw63AhtojObhNAdKRHTA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "user_id",
+											"value": "2",
+											"description": "required",
+											"type": "text"
+										},
+										{
+											"key": "review",
+											"value": "3",
+											"description": "required| rate between 01to 5",
+											"type": "text"
+										},
+										{
+											"key": "comment",
+											"value": "heba comment",
+											"description": "option",
+											"type": "text"
+										},
+										{
+											"key": "task_id",
+											"value": "1",
+											"description": "required",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/setting/review",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"review"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "basic",
+			"item": [
+				{
+					"name": "media",
+					"item": [
+						{
+							"name": "media",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{server}}/api/basic/media?id=",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"basic",
+										"media"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "log",
+					"item": [
+						{
+							"name": "media",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "done_by",
+											"value": "",
+											"description": "0 if visitor or id for user",
+											"type": "text"
+										},
+										{
+											"key": "action",
+											"value": "view",
+											"type": "text"
+										},
+										{
+											"key": "url",
+											"value": "",
+											"description": "url for front",
+											"type": "text"
+										},
+										{
+											"key": "comment",
+											"value": "",
+											"description": "wait view",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/basic/log/store",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"basic",
+										"log",
+										"store"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "favourite",
+			"item": [
+				{
+					"name": "favourite",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "model",
+									"value": "user",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/api/favourite/1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"favourite",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "favourite ad",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "model",
+											"value": "ad",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/favourite/66",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"favourite",
+										"66"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Apr 2022 08:21:43 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Win64) OpenSSL/1.1.1l PHP/7.3.31"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.31"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "Xac428aa7c1d07184da9bc1bd6cea3d98"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": true,\n    \"status\": 1,\n    \"message\": \"Done\",\n    \"pagination\": []\n}"
+						},
+						{
+							"name": "favourite task",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "model",
+											"value": "task",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/favourite/1",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"favourite",
+										"1"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Apr 2022 08:28:32 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Win64) OpenSSL/1.1.1l PHP/7.3.31"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.31"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "Xca6e4a4fa30e6244dbab42d77b17e638"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": true,\n    \"status\": 1,\n    \"message\": \"Done\",\n    \"pagination\": []\n}"
+						},
+						{
+							"name": "favourite user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "model",
+											"value": "user",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/favourite/1",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"favourite",
+										"1"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Apr 2022 08:37:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Win64) OpenSSL/1.1.1l PHP/7.3.31"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.31"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X1c9d20b5822197925e5686a67e0a17c4"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": true,\n    \"status\": 1,\n    \"message\": \"Done\",\n    \"pagination\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/api/favourite/list?model=user",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"favourite",
+								"list"
+							],
+							"query": [
+								{
+									"key": "model",
+									"value": "user"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "list task",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/api/favourite/list?model=task",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"favourite",
+										"list"
+									],
+									"query": [
+										{
+											"key": "model",
+											"value": "task"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Apr 2022 09:58:48 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Win64) OpenSSL/1.1.1l PHP/7.3.31"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.31"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X65fe5ea1a28541040b45b4187bc99e6e"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1758"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 1,\n            \"name\": \"test\",\n            \"description\": \"test\",\n            \"price\": 1,\n            \"time\": 20,\n            \"type_work\": \"online\",\n            \"user\": {\n                \"id\": 17,\n                \"username\": \"mohanad12221\",\n                \"fullname\": \"mohanad\",\n                \"email\": \"m.atef@lun.sa\",\n                \"mobile\": \"201011666757\",\n                \"role\": \"freelancer\",\n                \"available\": 1,\n                \"nationality_number\": null,\n                \"tax_number\": null,\n                \"commercial_number\": null,\n                \"job_name_id\": {\n                    \"id\": 1,\n                    \"name\": \"backend\"\n                },\n                \"description\": \"asasasas\",\n                \"info\": null,\n                \"avatar\": \"http://localhost/shogol-backend/public/images/test.png\",\n                \"gender\": {\n                    \"id\": 1,\n                    \"name\": \"ذكر\"\n                },\n                \"nationality\": {\n                    \"id\": 1,\n                    \"name\": \"سعودي\",\n                    \"logo\": \"\"\n                },\n                \"category\": [\n                    {\n                        \"id\": 1,\n                        \"name\": \"php\",\n                        \"type_work\": \"online\",\n                        \"parent\": null\n                    }\n                ],\n                \"country\": {\n                    \"id\": 1,\n                    \"name\": \"السعودية\"\n                },\n                \"city\": {\n                    \"id\": 1,\n                    \"name\": \"الرياض\",\n                    \"country\": {\n                        \"id\": 1,\n                        \"name\": \"السعودية\"\n                    }\n                },\n                \"state\": {\n                    \"id\": 1,\n                    \"name\": \"منطقه الرياض\",\n                    \"country\": {\n                        \"id\": 1,\n                        \"name\": \"السعودية\"\n                    },\n                    \"city\": {\n                        \"id\": 1,\n                        \"name\": \"الرياض\",\n                        \"country\": {\n                            \"id\": 1,\n                            \"name\": \"السعودية\"\n                        }\n                    }\n                },\n                \"language\": [],\n                \"skill\": [],\n                \"certificate\": [],\n                \"document\": [],\n                \"social\": [],\n                \"complete_profile\": 75,\n                \"profile_validation\": 1,\n                \"reverse\": [\n                    {\n                        \"title\": \"email approve\",\n                        \"status\": 1\n                    },\n                    {\n                        \"title\": \"mobile approve\",\n                        \"status\": 1\n                    }\n                ],\n                \"rate\": {\n                    \"rate\": 0,\n                    \"count\": 28\n                }\n            },\n            \"country\": {\n                \"id\": 1,\n                \"name\": \"السعودية\"\n            },\n            \"city\": {\n                \"id\": 1,\n                \"name\": \"الرياض\",\n                \"country\": {\n                    \"id\": 1,\n                    \"name\": \"السعودية\"\n                }\n            },\n            \"currency\": {\n                \"id\": 1,\n                \"name\": \"ريال\"\n            },\n            \"document\": [],\n            \"created_at_value\": \"2 day\"\n        }\n    ],\n    \"status\": 1,\n    \"message\": \"Done\",\n    \"pagination\": []\n}"
+						},
+						{
+							"name": "list ad",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/api/favourite/list?model=ad",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"favourite",
+										"list"
+									],
+									"query": [
+										{
+											"key": "model",
+											"value": "ad"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Apr 2022 09:59:07 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Win64) OpenSSL/1.1.1l PHP/7.3.31"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.31"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X6053c29192f5180b46e044d58d83156c"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3577"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": 2,\n            \"name\": \"test aaasAS\",\n            \"description\": \"test\",\n            \"price\": 1,\n            \"created_at_value\": \"13 day\",\n            \"user\": {\n                \"id\": 17,\n                \"username\": \"mohanad12221\",\n                \"fullname\": \"mohanad\",\n                \"email\": \"m.atef@lun.sa\",\n                \"mobile\": \"201011666757\",\n                \"role\": \"freelancer\",\n                \"available\": 1,\n                \"nationality_number\": null,\n                \"tax_number\": null,\n                \"commercial_number\": null,\n                \"job_name_id\": {\n                    \"id\": 1,\n                    \"name\": \"backend\"\n                },\n                \"description\": \"asasasas\",\n                \"info\": null,\n                \"avatar\": \"http://localhost/shogol-backend/public/images/test.png\",\n                \"gender\": {\n                    \"id\": 1,\n                    \"name\": \"ذكر\"\n                },\n                \"nationality\": {\n                    \"id\": 1,\n                    \"name\": \"سعودي\",\n                    \"logo\": \"\"\n                },\n                \"category\": [\n                    {\n                        \"id\": 1,\n                        \"name\": \"php\",\n                        \"type_work\": \"online\",\n                        \"parent\": null\n                    }\n                ],\n                \"country\": {\n                    \"id\": 1,\n                    \"name\": \"السعودية\"\n                },\n                \"city\": {\n                    \"id\": 1,\n                    \"name\": \"الرياض\",\n                    \"country\": {\n                        \"id\": 1,\n                        \"name\": \"السعودية\"\n                    }\n                },\n                \"state\": {\n                    \"id\": 1,\n                    \"name\": \"منطقه الرياض\",\n                    \"country\": {\n                        \"id\": 1,\n                        \"name\": \"السعودية\"\n                    },\n                    \"city\": {\n                        \"id\": 1,\n                        \"name\": \"الرياض\",\n                        \"country\": {\n                            \"id\": 1,\n                            \"name\": \"السعودية\"\n                        }\n                    }\n                },\n                \"language\": [],\n                \"skill\": [],\n                \"certificate\": [],\n                \"document\": [],\n                \"social\": [],\n                \"complete_profile\": 75,\n                \"profile_validation\": 1,\n                \"reverse\": [\n                    {\n                        \"title\": \"email approve\",\n                        \"status\": 1\n                    },\n                    {\n                        \"title\": \"mobile approve\",\n                        \"status\": 1\n                    }\n                ],\n                \"rate\": {\n                    \"rate\": 1,\n                    \"count\": 21\n                }\n            },\n            \"currency\": {\n                \"id\": 1,\n                \"name\": \"ريال\"\n            },\n            \"category\": [\n                {\n                    \"id\": 2,\n                    \"name\": \"javascript\",\n                    \"type_work\": \"online\",\n                    \"parent\": null\n                }\n            ],\n            \"document\": []\n        },\n        {\n            \"id\": 66,\n            \"name\": \"build build build\",\n            \"description\": \"asdasd asd asd asd asd asd asd asd asdas\",\n            \"price\": 21,\n            \"created_at_value\": \"12 day\",\n            \"user\": {\n                \"id\": 2,\n                \"username\": \"mahmoud allam\",\n                \"fullname\": \"mahmoud mohamed allam\",\n                \"email\": \"mahmoudFreelancer@gmail.com\",\n                \"mobile\": \"966111111111\",\n                \"role\": \"freelancer\",\n                \"available\": 1,\n                \"nationality_number\": \"1234\",\n                \"tax_number\": null,\n                \"commercial_number\": null,\n                \"job_name_id\": {\n                    \"id\": 1,\n                    \"name\": \"backend\"\n                },\n                \"description\": null,\n                \"info\": null,\n                \"avatar\": \"http://localhost/shogol-backend/public/images/test.png\",\n                \"gender\": {\n                    \"id\": 1,\n                    \"name\": \"ذكر\"\n                },\n                \"nationality\": {\n                    \"id\": 1,\n                    \"name\": \"سعودي\",\n                    \"logo\": \"\"\n                },\n                \"category\": [\n                    {\n                        \"id\": 2,\n                        \"name\": \"javascript\",\n                        \"type_work\": \"online\",\n                        \"parent\": null\n                    },\n                    {\n                        \"id\": 4,\n                        \"name\": \"angular\",\n                        \"type_work\": \"offline\",\n                        \"parent\": null\n                    }\n                ],\n                \"country\": {\n                    \"id\": 1,\n                    \"name\": \"السعودية\"\n                },\n                \"city\": {\n                    \"id\": 1,\n                    \"name\": \"الرياض\",\n                    \"country\": {\n                        \"id\": 1,\n                        \"name\": \"السعودية\"\n                    }\n                },\n                \"state\": {\n                    \"id\": 5,\n                    \"name\": \"منطقه الزلفي\",\n                    \"country\": {\n                        \"id\": 1,\n                        \"name\": \"السعودية\"\n                    },\n                    \"city\": {\n                        \"id\": 1,\n                        \"name\": \"الرياض\",\n                        \"country\": {\n                            \"id\": 1,\n                            \"name\": \"السعودية\"\n                        }\n                    }\n                },\n                \"language\": [],\n                \"skill\": [],\n                \"certificate\": [],\n                \"document\": [],\n                \"social\": [],\n                \"complete_profile\": 75,\n                \"profile_validation\": 1,\n                \"reverse\": [\n                    {\n                        \"title\": \"email approve\",\n                        \"status\": 1\n                    },\n                    {\n                        \"title\": \"mobile approve\",\n                        \"status\": 1\n                    }\n                ],\n                \"rate\": {\n                    \"rate\": 0,\n                    \"count\": 58\n                }\n            },\n            \"currency\": {\n                \"id\": 1,\n                \"name\": \"ريال\"\n            },\n            \"category\": [\n                {\n                    \"id\": 2,\n                    \"name\": \"javascript\",\n                    \"type_work\": \"online\",\n                    \"parent\": null\n                }\n            ],\n            \"document\": [\n                {\n                    \"id\": 95,\n                    \"file\": \"http://localhost/shogol-backend/public/uploads/ad/66/1649161451advsOne.png\"\n                },\n                {\n                    \"id\": 96,\n                    \"file\": \"http://localhost/shogol-backend/public/uploads/ad/66/1649161451advsTwo.jpg\"\n                },\n                {\n                    \"id\": 97,\n                    \"file\": \"http://localhost/shogol-backend/public/uploads/ad/66/1649161451test.jpg\"\n                }\n            ]\n        }\n    ],\n    \"status\": 1,\n    \"message\": \"Done\",\n    \"pagination\": []\n}"
+						},
+						{
+							"name": "list user",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{server}}/api/favourite/list?model=user",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"favourite",
+										"list"
+									],
+									"query": [
+										{
+											"key": "model",
+											"value": "user"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Apr 2022 09:59:20 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Win64) OpenSSL/1.1.1l PHP/7.3.31"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.31"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "55"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "Xaae2dd466bfce142751888f8817d0bb6"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "55"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [],\n    \"status\": 1,\n    \"message\": \"Done\",\n    \"pagination\": []\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9"
+		}
+	]
+}

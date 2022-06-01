@@ -67,8 +67,11 @@ class UserService extends BasicService
 
     public function list(Request $request, $pagination = false, $perPage = 10, $recursiveRel = [])
     {
-        ActiveLog(null, actionType()['va'], 'user');
-        return UserListResource::collection($this->repo->findBy($request, false, [], [], '', ['*'], $pagination, $perPage, $recursiveRel));
+        $recursiveRel = ['property' =>
+            [
+                'type' => 'whereHas',
+            ]];
+        return UserListResource::collection($this->repo->findBy($request, false, [], [], '', ['*'], $pagination, $perPage, $recursiveRel,['column'=>'order','order'=>'asc']));
     }
 
     public function profile(Request $request)

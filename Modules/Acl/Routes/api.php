@@ -39,7 +39,7 @@ Route::group(['middleware' => 'api', 'language'], function () {
         });
         Route::prefix('/user')->name('user.')->group(function () {
              Route::get('/profile', [UserController::class, 'profile'])->name('profile');
-             Route::any('/freelancer', [UserController::class, 'listFreelancer'])->name('list.freelancer');
+             Route::any('/list', [UserController::class, 'list'])->name('list');
          });
         //role
         Route::prefix('/role')->group(function () {

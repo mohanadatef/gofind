@@ -13,6 +13,7 @@ use Modules\Basic\Entities\Media;
 use Modules\CoreData\Entities\City;
 use Modules\CoreData\Entities\Country;
 use Modules\CoreData\Entities\State;
+use Modules\Property\Entities\Property;
 
 class User extends Authenticatable
 {
@@ -142,6 +143,11 @@ class User extends Authenticatable
     public function role()
     {
         return $this->belongsTo(Role::Class, 'role_id')->withTrashed();
+    }
+
+    public function property()
+    {
+        return $this->hasMany(Property::class);
     }
 
     public static function boot()

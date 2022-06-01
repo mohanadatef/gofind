@@ -57,4 +57,10 @@ class UserController extends BasicController
         }
         return $this->unKnowError();
     }
+
+    public function list(Request $request)
+    {
+        ActiveLog(null, actionType()['va'], 'user');
+        return $this->apiResponse($this->service->list($request,$this->pagination(),$this->perPage()),getCustomTranslation('Done'));
+    }
 }

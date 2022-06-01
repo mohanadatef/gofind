@@ -4,9 +4,11 @@ namespace Modules\Property\Http\Resources\Property;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 use Modules\Acl\Http\Resources\User\UserListResource;
+use Modules\CoreData\Http\Resources\Category\CategoryListResource;
 use Modules\CoreData\Http\Resources\City\CityListResource;
 use Modules\CoreData\Http\Resources\Country\CountryListResource;
 use Modules\CoreData\Http\Resources\State\StateListResource;
+use Modules\CoreData\Http\Resources\Tag\TagListResource;
 
 class PropertyResource extends JsonResource
 {
@@ -22,6 +24,8 @@ class PropertyResource extends JsonResource
             'country' => new CountryListResource($this->country),
             'state' => new StateListResource($this->state),
             'user' => new UserListResource($this->user),
+            'category' => new CategoryListResource($this->category),
+            'tag' => TagListResource::collection($this->tag),
         ];
     }
 }

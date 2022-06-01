@@ -46,9 +46,9 @@ class UserRepository extends BasicRepository
         return [];
     }
 
-    public function findBy(Request $request, $trash = false, $moreConditionForFirstLevel = [], $withRelations = [], $get = '', $column = ['*'], $pagination = false, $perPage = 10, $recursiveRel = [])
+    public function findBy(Request $request, $trash = false, $moreConditionForFirstLevel = [], $withRelations = [], $get = '', $column = ['*'], $pagination = false, $perPage = 10, $recursiveRel = [],$orderBy=[])
     {
-        return $this->all($request->all(), $column, $withRelations, $recursiveRel, $moreConditionForFirstLevel, $trash, [], [], $get, null, null, $pagination, $perPage);
+        return $this->all($request->all(), $column, $withRelations, $recursiveRel, $moreConditionForFirstLevel, $trash, [], $orderBy, $get, null, null, $pagination, $perPage);
     }
 
     public function findOne($id)
