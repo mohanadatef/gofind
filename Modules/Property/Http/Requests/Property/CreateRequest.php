@@ -26,7 +26,9 @@ class CreateRequest extends FormRequest
      */
     public function rules()
     {
-        return Property::getValidationRules();
+        $rules =  Property::getValidationRules();
+        $rules['image'] = $rules['image'].'|required';
+        return $rules;
     }
 
 }

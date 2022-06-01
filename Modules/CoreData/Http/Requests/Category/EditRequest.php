@@ -26,8 +26,7 @@ class EditRequest extends FormRequest
      */
     public function rules()
     {
-        $rules= Category::getValidationRules();
-        $rules = $this->translationValidationRules(Category::Class,$rules,Category::translationKey(),$this->id);
+        $rules = $this->translationValidationRules(Category::Class,Category::getValidationRules(),Category::translationKey(),$this->id);
         $rules['order'] = $rules['order'].',order,'.$this->id.',id';
         return $rules;
     }

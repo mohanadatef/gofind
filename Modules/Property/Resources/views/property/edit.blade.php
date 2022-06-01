@@ -93,10 +93,8 @@
                                         <div class="col-md-6">
                                             <div class="form-group{{ $errors->has('tag_id') ? ' is-invalid' : "" }}">
                                                 <label>{{$custom[strtolower('tag')]??"lang not found"}}</label>
-                                                <select class="form-control " id="tag_id" name="tag_id[]" multiple="multiple"
-                                                        style="width: 100%;">
-                                                    <option value="0"
-                                                            id="option-city-0">{{$custom[strtolower('select')]??"lang not found"}}</option>
+                                                <select class="form-control select2" id="tag_id" name="tag_id[]" multiple="multiple"
+                                                        style="width: 100%;" data-placeholder="{{$custom[strtolower('select')]??"lang not found"}}">
                                                     @foreach($tag as $my)
                                                         <option value="{{$my->id}}" @if(in_array($my->id,$data->tag_id->pluck('id')->toArray()))  selected @endif
                                                                 id="option-tag-{{$my->id}}">{{$my->name->value ?? ""}}</option>
@@ -125,6 +123,11 @@
                                                         style="width: 100%;">
                                                     <option value="0" @if($data->city_id == $my->id) selected @endif
                                                             id="option-city-0">{{$custom[strtolower('select')]??"lang not found"}}</option>
+                                                    @foreach($city as $my)
+                                                        <option value="{{$my->id}}"
+                                                                id="option-city-{{$my->id}}"
+                                                                @if($data->city_id = $my->id) selected @endif>{{$my->name->value ?? ""}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
@@ -135,6 +138,11 @@
                                                         style="width: 100%;">
                                                     <option value="0" @if($data->state_id == $my->id) selected @endif
                                                             id="option-state-0">{{$custom[strtolower('select')]??"lang not found"}}</option>
+                                                    @foreach($state as $my)
+                                                        <option value="{{$my->id}}"
+                                                                id="option-state-{{$my->id}}"
+                                                                @if($data->state_id = $my->id) selected @endif>{{$my->name->value ?? ""}}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>

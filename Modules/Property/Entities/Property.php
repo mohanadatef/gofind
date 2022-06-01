@@ -53,7 +53,7 @@ class Property extends Model
         'category_id' => 'required|exists:categories,id',
         'state_id' => 'required|exists:states,id',
         'info' => 'required|string|min:3|max:150',
-        'image' => 'required|image|mimes:jpg,jpeg,png,gif',
+        'image' => 'image|mimes:jpg,jpeg,png,gif',
     ];
 
     public static function getValidationRules()
