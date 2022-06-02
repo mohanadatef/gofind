@@ -47,6 +47,14 @@ Route::prefix('acl')->group(function() {
     {
         Route::post('/{id}',[ForgetPasswordController::class,'update'])->name('update');
     });
+    /* permission route list */
+    Route::apiresource('lead',LeadController::class,['except'=>['show','update']])
+        ->parameters(['lead'=>'id']);
+    Route::controller(LeadController::class)->prefix('/lead')->name('lead.')->group(function()
+    {
+        Route::get('/trash','trash')->name('trash');
+        Route::get('/restore/{id}','restore')->name('restore');
+    });
 });
 });
 Route::group(['middleware' => 'language'], function () {

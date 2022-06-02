@@ -40,6 +40,8 @@ return [
     'HomeSettingValueTableSeeder',
     'HomeCustomTranslationsTableSeeder',
     'CountryPermissionTableSeeder',
+    'LeadCustomTranslationsTableSeeder',
+    'LeadPermissionTableSeeder',
     'AddAdminRoleTableSeeder',
     'PassportTokens',
 ];

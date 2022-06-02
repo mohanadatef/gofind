@@ -50,6 +50,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RolePermissionTableSeeder::class);
         $this->call(LogPermissionTableSeeder::class);
         $this->call(CountryPermissionTableSeeder::class);
+        $this->call(LeadPermissionTableSeeder::class);
+        $this->call(LeadCustomTranslationsTableSeeder::class);
         $this->call(AddAdminRoleTableSeeder::class);
         $this->call(PassportTokens::class);
     }

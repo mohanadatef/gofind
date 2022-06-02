@@ -6,6 +6,7 @@ use Modules\Acl\Http\Controllers\Api\RoleController;
 use Modules\Acl\Http\Controllers\Api\PermissionController;
 use Modules\Acl\Http\Controllers\Api\ForgetPasswordController;
 use Modules\Acl\Http\Controllers\Api\FavouriteController;
+use Modules\Acl\Http\Controllers\Api\LeadController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +49,10 @@ Route::group(['middleware' => 'api', 'language'], function () {
         //permission
         Route::prefix('/permission')->group(function () {
             Route::any('/list', [PermissionController::class, 'list'])->name('list');
+        });
+        Route::prefix('/lead')->name('lead.')->group(function () {
+            //favourite
+            Route::post('', [LeadController::class, 'store'])->name('store');
         });
         Route::group(['middleware' => 'auth:api'], function () {
             Route::prefix('/user')->name('user.')->group(function () {

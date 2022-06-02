@@ -101,7 +101,7 @@ class PropertyController extends BasicController
 
     public function update(EditRequest $request, $id)
     {
-        $data= $this->service->update($request,$id);
+        $data= $this->service->update($request);
         if($data)
         {
             return redirect(route('property.index'))->with(getCustomTranslation('Done'));
