@@ -34,14 +34,4 @@ class Lead extends Model
     public $searchConfig = [];
 
     protected $dates = ['deleted_at'];
-
-    public static $rules = [
-        'name' => 'required|string',
-        'mobile' => 'required|numeric|unique:leads',
-    ];
-
-    public static function getValidationRules()
-    {
-        return self::$rules;
-    }
 }

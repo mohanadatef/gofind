@@ -2,7 +2,7 @@
 
 namespace Modules\Acl\Http\Controllers\Api;
 
-use Modules\Acl\Http\Requests\Lead\Api\CreateRequest;
+use Illuminate\Http\Request;
 use Modules\Acl\Service\LeadService;
 use Modules\Basic\Http\Controllers\BasicController;
 
@@ -15,7 +15,7 @@ class LeadController extends BasicController
         $this->service = $Service;
     }
 
-    public function store(CreateRequest $request)
+    public function store(Request $request)
     {
         $data = $this->service->store($request);
         if ($data) {
