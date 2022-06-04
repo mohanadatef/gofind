@@ -26,6 +26,7 @@ class PropertyResource extends JsonResource
             'user' => new UserListResource($this->user),
             'category' => new CategoryListResource($this->category),
             'tag' => TagListResource::collection($this->tag),
+            'price' => PropertyPriceResource::collection($this->price),
         ];
     }
 }

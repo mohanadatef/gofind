@@ -71,6 +71,12 @@ class PropertyPermissionTableSeeder extends Seeder
                 'display_name' => 'property change status',
                 'description' => 'property change status'
             ],
+            [
+                'name' => 'property contact us',
+                'permission_group' => permissionGroup()['pp'],
+                'display_name' => 'property contact us',
+                'description' => 'property contact us'
+            ],
         ];
         foreach ($permissions as $value) {
             $data = app()->make(PermissionService::class)->findBy(new Request(['name' => strtolower(str_replace([" " ,'_'],"-",$value['name']))]), 'count');

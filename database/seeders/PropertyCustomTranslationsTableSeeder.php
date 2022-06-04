@@ -17,6 +17,7 @@ class PropertyCustomTranslationsTableSeeder extends Seeder
     {
         $custom = [
             ['key' => 'Property', 'value' => 'Property'],
+            ['key' => 'show_contact_us', 'value' => 'show contact us'],
         ];
         foreach ($custom as $value) {
             $data = app()->make(CustomTranslationService::class)->findBy(new Request(['key'=> strtolower($value['key'])]),false,false,10,'count');

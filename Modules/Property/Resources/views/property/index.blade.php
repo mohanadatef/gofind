@@ -70,6 +70,10 @@
                                             </td>
                                             @endpermission
                                             <td>
+                                                @permission('property-contact-us')
+                                                <a href="{{  route('contact_us.index',['property_id'=>$data->id]) }}"
+                                                   class="btn btn-outline-primary btn-block btn-sm"><i class="fa fa-edit"></i>{{$custom[strtolower('show_contact_us')]??""}}</a>
+                                                @endpermission
                                                 @permission('property-edit')
                                                 <a href="{{  route('property.edit',$data->id) }}"
                                                    class="btn btn-outline-primary btn-block btn-sm"><i class="fa fa-edit"></i>{{$custom[strtolower('Edit')]??""}}</a>
