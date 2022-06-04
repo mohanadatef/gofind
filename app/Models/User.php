@@ -14,6 +14,7 @@ use Modules\CoreData\Entities\City;
 use Modules\CoreData\Entities\Country;
 use Modules\CoreData\Entities\State;
 use Modules\Property\Entities\Property;
+use Modules\Setting\Entities\ContactUs;
 
 class User extends Authenticatable
 {
@@ -148,6 +149,11 @@ class User extends Authenticatable
     public function property()
     {
         return $this->hasMany(Property::class);
+    }
+
+    public function contact_us()
+    {
+        return $this->hasMany(ContactUs::Class);
     }
 
     public static function boot()

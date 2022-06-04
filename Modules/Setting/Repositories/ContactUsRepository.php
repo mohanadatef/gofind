@@ -13,7 +13,7 @@ class ContactUsRepository extends BasicRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'name','id','status','email','mobile','subject'
+        'name','id','status','email','mobile','subject','user_id','property_id'
     ];
     /**
      * Configure the Model

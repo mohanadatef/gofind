@@ -23,6 +23,10 @@ class ContactUsService extends BasicService
 
     public function findBy(Request $request, $trash = false, $pagination = false, $perPage = 10)
     {
+        if(!isset($request->property_id))
+        {
+            $request->merge(['property_id'=>0]);
+        }
         ActiveLog(null, actionType()['va'], 'contact_us');
         return $this->repo->findBy($request, $trash, $pagination, $perPage);
     }

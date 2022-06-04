@@ -20,6 +20,8 @@ class CreateContactusTable extends Migration
             $table->string('email', 255);
             $table->string('mobile', 255);
             $table->text('description');
+            $table->integer('user_id')->nullable()->index()->default(0);
+            $table->integer('property_id')->nullable()->index()->default(0);
             $table->integer('status')->default('0');
             $table->timestamps();
             $table->softDeletes();

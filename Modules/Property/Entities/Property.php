@@ -11,6 +11,7 @@ use Modules\CoreData\Entities\City;
 use Modules\CoreData\Entities\Country;
 use Modules\CoreData\Entities\State;
 use Modules\CoreData\Entities\Tag;
+use Modules\Setting\Entities\ContactUs;
 
 class Property extends Model
 {
@@ -114,6 +115,11 @@ class Property extends Model
     public function price()
     {
         return $this->hasMany(PropertyPrice::Class);
+    }
+
+    public function contact_us()
+    {
+        return $this->hasMany(ContactUs::Class);
     }
 
     public static function boot()
