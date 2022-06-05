@@ -4,6 +4,7 @@ namespace Modules\Setting\Service;
 
 use Illuminate\Http\Request;
 use Modules\Basic\Service\BasicService;
+use Modules\Setting\Http\Resources\ContactUs\ContactUsListResource;
 use Modules\Setting\Repositories\ContactUsRepository;
 
 class ContactUsService extends BasicService
@@ -36,5 +37,11 @@ class ContactUsService extends BasicService
         $data = $this->repo->save($request);
         ActiveLog($data, actionType()['ca'], 'contact_us');
         return $data;
+    }
+
+    public function list(Request $request,$pagination = false , $perPage = 10)
+    {
+        ActiveLog(null, actionType()['va'], 'home_slider');
+        return ContactUsListResource::collection($this->repo->list($request,$pagination, $perPage));
     }
 }

@@ -57,4 +57,9 @@ class ContactUsRepository extends BasicRepository
         });
     }
 
+    public function list(Request $request,$pagination = false , $perPage = 10)
+    {
+        $request->merge(['status' => activeType()['as']]);
+        return $this->all($request->all(),['*'],[], [],[],false,[],[],'',null,null,$pagination,$perPage);
+    }
 }

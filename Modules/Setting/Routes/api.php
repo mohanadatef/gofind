@@ -35,5 +35,10 @@ Route::group(['middleware' => 'api', 'language'], function () {
                 Route::any('/list', [SettingController::class, 'list'])->name('list');
             });
         });
+        Route::group(['middleware' => 'auth:api'], function () {
+            Route::prefix('/contact_us')->name('contact_us.')->group(function () {
+                Route::post('/list', [ContactUsController::class, 'list'])->name('list');
+            });
+        });
     });
 });
