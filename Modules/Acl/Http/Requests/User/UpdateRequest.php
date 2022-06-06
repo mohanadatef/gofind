@@ -4,9 +4,11 @@ namespace Modules\Acl\Http\Requests\User;
 
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Modules\Basic\Traits\validationRulesTrait;
 
 class UpdateRequest extends FormRequest
 {
+    use validationRulesTrait;
     /**
      * Determine if the User is authorized to make this request.
      *
@@ -29,7 +31,11 @@ class UpdateRequest extends FormRequest
      */
     public function rules()
     {
-        return User::getValidationRulesUpdate();
+        $rules= User::getValidationRulesUpdate();
+        $rules['mobile'] = $rules['mobile'].',mobile,'.$this->id.',id';
+        $rules['order'] = $rules['order'].',order,'.$this->id.',id|required';
+        $rules['email'] = $rules['email'].',email,'.$this->id.',id';
+        return $rules;
     }
 
 }

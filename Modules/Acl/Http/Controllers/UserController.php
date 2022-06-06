@@ -4,7 +4,7 @@ namespace Modules\Acl\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use Modules\Acl\Http\Requests\User\EditRequest;
+use Modules\Acl\Http\Requests\User\UpdateRequest;
 use Modules\Acl\Http\Requests\User\CreateRequest;
 use Modules\Acl\Service\UserService;
 use Modules\Basic\Http\Controllers\BasicController;
@@ -80,7 +80,7 @@ class UserController extends BasicController
         return view(checkView('acl::user.edit'),compact('data'));
     }
 
-    public function update(EditRequest $request, $id)
+    public function update(UpdateRequest $request, $id)
     {
         $data= $this->service->update($request,$id);
         if($data)
