@@ -86,11 +86,6 @@ class User extends Authenticatable
         return array_merge(self::$rules, self::$PasswordRules);
     }
 
-    public static function getValidationRulesLogin()
-    {
-        return self::$PasswordRules;
-    }
-
     public static function getValidationRulesUpdate()
     {
         return self::$rules;

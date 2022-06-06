@@ -25,9 +25,8 @@ class UpdateRequest extends FormRequest
 
     protected function prepareForValidation()
     {
-        if (isset($this->mobile)) {
-            $this->merge(['mobile' => $this->convertPersian($this->mobile)]);
-        }
+        $this->merge(['mobile' => $this->convertPersian($this->mobile)]);
+        $this->merge(['role_id' => 2]);
     }
 
     /**

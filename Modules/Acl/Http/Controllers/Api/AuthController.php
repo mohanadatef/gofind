@@ -6,7 +6,6 @@ namespace Modules\Acl\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Modules\Acl\Http\Requests\Login\Api\LoginRequest;
 use Modules\Acl\Http\Resources\User\UserLoginResource;
 use Modules\Acl\Service\UserService;
 use Modules\Basic\Http\Controllers\BasicController;
@@ -30,7 +29,7 @@ class AuthController extends BasicController
      * can login by mobile or email
      * @must by status => active 1,make confirm email
      */
-    public function login(LoginRequest $request)
+    public function login(Request $request)
     {
         $moreConditionForFirstLevel = [
             'whereCustom' => [
