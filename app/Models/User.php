@@ -70,7 +70,7 @@ class User extends Authenticatable
         'role_id' => 'required|exists:roles,id',
         'email' => 'required|regex:/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]/|min:2|max:50|email|unique:users',
         'mobile' => 'required|numeric|unique:users',
-        'order' => 'required|numeric|unique:users',
+        'order' => 'numeric|unique:users',
         'city_id' => 'required|exists:cities,id',
         'country_id' => 'exists:countries,id',
         'state_id' => 'required|exists:states,id',

@@ -7,10 +7,11 @@ use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Modules\Basic\Traits\ApiResponseTrait;
+use Modules\Basic\Traits\validationRulesTrait;
 
 class CreateRequest extends FormRequest
 {
-    use ApiResponseTrait;
+    use ApiResponseTrait,validationRulesTrait;
 
     /**
      * Determine if the User is authorized to make this request.
