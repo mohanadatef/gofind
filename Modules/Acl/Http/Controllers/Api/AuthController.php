@@ -17,7 +17,7 @@ use Modules\Basic\Http\Controllers\BasicController;
  */
 class AuthController extends BasicController
 {
-    protected  $userService;
+    protected $userService;
 
     public function __construct(UserService $userService)
     {
@@ -34,12 +34,12 @@ class AuthController extends BasicController
     {
         $moreConditionForFirstLevel = [
             'whereCustom' => [
-                'where' => [['email' => $request->email],['mobile' => $request->email]],
+                'where' => [['email' => $request->email], ['mobile' => $request->email], ['facebook_id' => $request->email]],
             ]
         ];
-        $user = $this->userService->findBy(new Request(), false, $moreConditionForFirstLevel, 'first',['*'],false,10);
+        $user = $this->userService->findBy(new Request(), false, $moreConditionForFirstLevel, 'first');
         if ($user) {
-            if (!Hash::check($request->password, $user->password)) {
+            if (isset($request->password) && !Hash::check($request->password, $user->password)) {
                 ActiveLog($user, actionType()['la'], 'failed_password');
                 return $this->unauthorizedResponse(getCustomTranslation('failed_password'));
             }

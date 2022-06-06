@@ -32,7 +32,7 @@ class ComposerServiceProvider extends ServiceProvider
             $languageActive = languageActive();
             $language = language();
         }
-        if (Schema::hasTable('setting')) {
+        if (Schema::hasTable('settings')) {
             $setting = app()->make(SettingService::class)->findBy(new Request(['status' => activeType()['as']]), '', ['value', 'key']);
         }
         view()->composer(['*'], function ($view) use ( $languageActive, $language, $setting) {

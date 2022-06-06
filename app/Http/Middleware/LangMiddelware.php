@@ -21,7 +21,7 @@ class LangMiddelware
             $lang = $request->header('lang');
         } elseif ($request->lang) {
             $lang = $request->lang;
-        } elseif ($request->cookie('language')) {
+        } elseif ($request->cookie('language') && !$request->expectsJson()) {
             $lang = $request->cookie('language');
         }
         if (user() && user()->lang != $lang) {
