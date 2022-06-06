@@ -20,6 +20,9 @@ class RoleTableSeeder extends Seeder
             [
                 'name' => 'admin',
             ],
+            [
+                'name' => 'client',
+            ]
         ];
         foreach ($roles as $value) {
             $data = app()->make(RoleService::class)->findBy(new Request(['name' => $value['name']]), false,'count');

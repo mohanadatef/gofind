@@ -24,7 +24,7 @@ class UserController extends BasicController
     {
         $data = $this->service->store($request);
         if ($data) {
-            return $this->createResponse($data, getCustomTranslation('Register_message'));
+            return $this->createResponse($data, getCustomTranslation('done'));
         }
         return $this->unKnowError();
     }
