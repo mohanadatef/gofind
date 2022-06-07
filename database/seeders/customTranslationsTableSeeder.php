@@ -2852,7 +2852,11 @@ class customTranslationsTableSeeder extends Seeder
                     "ar"=> "صحيح",
                     "en"=> "correct"
                 ]
-            ]
+            ],
+            ['key' => 'Change_Password',"value"=> [
+                "ar"=> "تغير كلمه السر",
+                "en"=> "Change Password"
+            ] ],
 
         ];
         foreach ($custom as $value) {
