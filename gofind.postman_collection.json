@@ -112,109 +112,6 @@
 					]
 				},
 				{
-					"name": "check mobile",
-					"item": [
-						{
-							"name": "check mobile",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "mobile",
-											"value": "96659203119",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{server}}/api/check_mobile/cheek",
-									"host": [
-										"{{server}}"
-									],
-									"path": [
-										"api",
-										"check_mobile",
-										"cheek"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "resend code",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "mobile",
-											"value": "",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{server}}/api/check_mobile/resend",
-									"host": [
-										"{{server}}"
-									],
-									"path": [
-										"api",
-										"check_mobile",
-										"resend"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "check code",
-							"request": {
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "code",
-											"value": "",
-											"type": "text"
-										},
-										{
-											"key": "mobile",
-											"value": "966111111111",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{server}}/api/check_mobile/code",
-									"host": [
-										"{{server}}"
-									],
-									"path": [
-										"api",
-										"check_mobile",
-										"code"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
 					"name": "user",
 					"item": [
 						{
@@ -272,7 +169,7 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiYjlhZDRkNTdmMDZhODBjNDAwYmM1YWE2ZDg3MDVlZTNiNDJiMjc1NmE5NTA1YmJhYjljZGM2NDY0MjMyZjI2MDg1ZGIxMmU4YTJlNjJiZDEiLCJpYXQiOjE2NTQ1MjE2NTAsIm5iZiI6MTY1NDUyMTY1MCwiZXhwIjoxNjg2MDU3NjUwLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.ldo7VJdd8goGOLgrfekgC3sY6AOs0-PwMUFP6G98VdmkD6ApG6zZPLFUbZsBHYfR22EO7ElLG9Bt59AfsNVdoqY-gM5-E5mKKEh6__MEvOTStbFX3uCCBuqszldFRivSr76Z68V5feAYeJhUoje8-q0u57KdIjJB90VQDICvLWqQ6VqfxS-cOWw7DIBiqXAhlhxqWlVbxbKVE7hk07C2d-XACSPOz0rZUnq1mWHiNBvJlsAx3fMxiO7bpH1Q6ZigUSg61Ea-Gt7tRbwR_X2LNpuDfBPWK3ichn81NcK9i73vEGRbDDlsVKyr4lScLJ0YBOXWI-4KhTRYt_kAH2EnP36QlmwuJwawuZHhlz12KuLC8PA26MlJ09GWlpqL570wOLyGEcndggIvRE2XD2vxpx61w8TfDhSPE5ouiLlJfc4dPL9u3lI8IUWC6pS8ZkAZulfcDhqarnNoslbJVHDvKTYmgrh7gJASHl_RXYTrPA2m5BaeS7DOHk7yth8ezrTX7bsg7QlJT7lTf-w7KGuVvzZ8n47nCxeF2HBtpXZCA-aKv3oDDJ6lUl7-69ubaoIjUNAT-fZlDEac6JRalrtsOXXJyCTZYRXeYtvpuPqa-qlDIHm9sd2fTdh9G0DVGCXjUwo7_UB5s9EE8JKQWTn5LQdkYb5nCuPbkE-xLuHbjMQ",
 										"type": "text"
 									}
 								],
@@ -282,63 +179,57 @@
 										{
 											"key": "fullname",
 											"value": "test",
-											"type": "text",
-											"disabled": true
+											"type": "text"
 										},
 										{
 											"key": "email",
 											"value": "111@q.com",
-											"type": "text",
-											"disabled": true
+											"type": "text"
 										},
 										{
 											"key": "country_id",
 											"value": "1",
-											"type": "text",
-											"disabled": true
+											"type": "text"
 										},
 										{
 											"key": "city_id",
 											"value": "1",
-											"type": "text",
-											"disabled": true
+											"type": "text"
 										},
 										{
 											"key": "state_id",
 											"value": "1",
-											"type": "text",
-											"disabled": true
+											"type": "text"
 										},
 										{
 											"key": "avatar",
 											"type": "file",
-											"src": [],
-											"disabled": true
+											"src": []
 										},
 										{
 											"key": "info",
-											"value": "",
-											"type": "text",
-											"disabled": true
+											"value": "ghfghfghfhg",
+											"type": "text"
 										},
 										{
-											"key": "tag[]",
-											"value": "",
-											"type": "text",
-											"disabled": true
+											"key": "mobile",
+											"value": "010112225888",
+											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "{{server}}/api/user/update/17",
+									"raw": "http://localhost/gofind/api/user/update/2",
+									"protocol": "http",
 									"host": [
-										"{{server}}"
+										"localhost"
 									],
 									"path": [
+										"gofind",
 										"api",
 										"user",
 										"update",
-										"17"
+										"2"
 									]
 								}
 							},
@@ -451,7 +342,7 @@
 									"formdata": [
 										{
 											"key": "email",
-											"value": "m.atef@lun.sa1211111121",
+											"value": "Heba@lun.sa",
 											"description": "email or mobile or name",
 											"type": "text"
 										},
@@ -470,11 +361,13 @@
 									]
 								},
 								"url": {
-									"raw": "{{server}}/api/auth/login",
+									"raw": "http://localhost/gofind/api/auth/login",
+									"protocol": "http",
 									"host": [
-										"{{server}}"
+										"localhost"
 									],
 									"path": [
+										"gofind",
 										"api",
 										"auth",
 										"login"
@@ -490,16 +383,18 @@
 								"header": [
 									{
 										"key": "Authorization",
-										"value": "Bearer {{token}}",
+										"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIzIiwianRpIjoiYjlhZDRkNTdmMDZhODBjNDAwYmM1YWE2ZDg3MDVlZTNiNDJiMjc1NmE5NTA1YmJhYjljZGM2NDY0MjMyZjI2MDg1ZGIxMmU4YTJlNjJiZDEiLCJpYXQiOjE2NTQ1MjE2NTAsIm5iZiI6MTY1NDUyMTY1MCwiZXhwIjoxNjg2MDU3NjUwLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.ldo7VJdd8goGOLgrfekgC3sY6AOs0-PwMUFP6G98VdmkD6ApG6zZPLFUbZsBHYfR22EO7ElLG9Bt59AfsNVdoqY-gM5-E5mKKEh6__MEvOTStbFX3uCCBuqszldFRivSr76Z68V5feAYeJhUoje8-q0u57KdIjJB90VQDICvLWqQ6VqfxS-cOWw7DIBiqXAhlhxqWlVbxbKVE7hk07C2d-XACSPOz0rZUnq1mWHiNBvJlsAx3fMxiO7bpH1Q6ZigUSg61Ea-Gt7tRbwR_X2LNpuDfBPWK3ichn81NcK9i73vEGRbDDlsVKyr4lScLJ0YBOXWI-4KhTRYt_kAH2EnP36QlmwuJwawuZHhlz12KuLC8PA26MlJ09GWlpqL570wOLyGEcndggIvRE2XD2vxpx61w8TfDhSPE5ouiLlJfc4dPL9u3lI8IUWC6pS8ZkAZulfcDhqarnNoslbJVHDvKTYmgrh7gJASHl_RXYTrPA2m5BaeS7DOHk7yth8ezrTX7bsg7QlJT7lTf-w7KGuVvzZ8n47nCxeF2HBtpXZCA-aKv3oDDJ6lUl7-69ubaoIjUNAT-fZlDEac6JRalrtsOXXJyCTZYRXeYtvpuPqa-qlDIHm9sd2fTdh9G0DVGCXjUwo7_UB5s9EE8JKQWTn5LQdkYb5nCuPbkE-xLuHbjMQ",
 										"type": "text"
 									}
 								],
 								"url": {
-									"raw": "{{server}}/api/auth/get_user",
+									"raw": "http://localhost/gofind/api/auth/get_user",
+									"protocol": "http",
 									"host": [
-										"{{server}}"
+										"localhost"
 									],
 									"path": [
+										"gofind",
 										"api",
 										"auth",
 										"get_user"
@@ -565,28 +460,30 @@
 											"type": "text"
 										},
 										{
-											"key": "tag[]",
-											"value": "",
-											"type": "text"
-										},
-										{
 											"key": "info",
-											"value": "",
+											"value": "asd",
 											"type": "text"
 										},
 										{
 											"key": "avater",
 											"value": "",
 											"type": "text"
+										},
+										{
+											"key": "password_confirmation",
+											"value": "12345678",
+											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "{{server}}/api/auth/register",
+									"raw": "http://localhost/gofind/api/auth/register",
+									"protocol": "http",
 									"host": [
-										"{{server}}"
+										"localhost"
 									],
 									"path": [
+										"gofind",
 										"api",
 										"auth",
 										"register"
@@ -998,6 +895,39 @@
 								}
 							},
 							"response": []
+						},
+						{
+							"name": "list",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "{{server}}/api/setting/contact_us/list",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"contact_us",
+										"list"
+									]
+								}
+							},
+							"response": []
 						}
 					]
 				},
@@ -1118,287 +1048,6 @@
 										"setting",
 										"setting",
 										"list"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "f & q",
-					"item": [
-						{
-							"name": "list",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{server}}/api/setting/fq/list",
-									"host": [
-										"{{server}}"
-									],
-									"path": [
-										"api",
-										"setting",
-										"fq",
-										"list"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "cancellation",
-					"item": [
-						{
-							"name": "list",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{server}}/api/setting/cancellation/list",
-									"host": [
-										"{{server}}"
-									],
-									"path": [
-										"api",
-										"setting",
-										"cancellation",
-										"list"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Notification",
-					"item": [
-						{
-							"name": "List",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzY2YmY4YzYyZTIwODZiOGJjYWRjYzU2N2MyMzFlYTg0ZDA4OWFlYTllNzQ1OWRiODJlOWQzM2VlMGVkYzA1MTMwNThiYWVhY2IxZjc1OTciLCJpYXQiOjE2NTE5MTk5OTAuMzM5MDUzLCJuYmYiOjE2NTE5MTk5OTAuMzM5MDcxLCJleHAiOjE2ODM0NTU5OTAuMzE0NDkzLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.RU1w_Sr9lHpvWze4rJnq5nE_LHGTLotdaSrR4Agp8QZRSRDdNoVX_3q4IH9rmzb6LO2X1vc_6LKNaGTIEAcWjVon-SsPOm3CPLnJQZbNfL7aYzo9DJwlotlHz5RUxoHK18qeAAffv3umh2ZNDzUYY2kGB77hA4zUYrcKxRwVwduBeZHH_hAxjgE71iX9xLCXOAJ_aVnX6wmAZ5QaophS66MUiccgeP5HlIXhUcWTbThWUZzqqwN90ZxU_jEIl-IcQlRXIv-Weqc7uRZNk5hRGS2u-0sSgOzBn3IWEkWKz4E-Jku9kPblu4RtCdbVH7brbKSz5zPEsZtk0t-mOJqTLz8hQkbowNbFmKte3t94cymgnnB0jJ9FH26Dlp-RxUNzKX3hgPz4f2Ro98zSDe0SuCR0mHfToIzoSg4i-EOS-Ew610scUZDfFDXuryfjDeofNdaGtxVp54PGJyliCsjJvMvlb_fTNbdv-gBlIRR1chgUUXtfF_y8LRSLkObuyS-4D_ThfUJjsIHbaYShlW0dYRWLPazvj_aZCPsnsuE2GdJ6ok6vHre9WinUxC3a_MxgBi-VcvOw6QpuW5Wuao5umogeY3LFHyqL-tSUVUziZOxm7tDghEHvVnr_mq0CRnoVP0mt72ZqiFZn3X1Mt6wyyDZVkp284juh0NOiSG6A2Tg",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{server}}/api/setting/notification/list",
-									"host": [
-										"{{server}}"
-									],
-									"path": [
-										"api",
-										"setting",
-										"notification",
-										"list"
-									]
-								}
-							},
-							"response": [
-								{
-									"name": "List",
-									"originalRequest": {
-										"method": "GET",
-										"header": [],
-										"url": {
-											"raw": "{{server}}/api/setting/notification/list",
-											"host": [
-												"{{server}}"
-											],
-											"path": [
-												"api",
-												"setting",
-												"notification",
-												"list"
-											]
-										}
-									},
-									"status": "OK",
-									"code": 200,
-									"_postman_previewlanguage": "json",
-									"header": [
-										{
-											"key": "Date",
-											"value": "Sat, 07 May 2022 10:46:20 GMT"
-										},
-										{
-											"key": "Server",
-											"value": "Apache/2.4.52 (Win64) OpenSSL/1.1.1m PHP/7.4.27"
-										},
-										{
-											"key": "Vary",
-											"value": "Authorization"
-										},
-										{
-											"key": "X-Powered-By",
-											"value": "PHP/7.4.27"
-										},
-										{
-											"key": "Cache-Control",
-											"value": "no-cache, private"
-										},
-										{
-											"key": "X-RateLimit-Limit",
-											"value": "60"
-										},
-										{
-											"key": "X-RateLimit-Remaining",
-											"value": "59"
-										},
-										{
-											"key": "Access-Control-Allow-Origin",
-											"value": "*"
-										},
-										{
-											"key": "Content-Length",
-											"value": "1483"
-										},
-										{
-											"key": "Keep-Alive",
-											"value": "timeout=5, max=100"
-										},
-										{
-											"key": "Connection",
-											"value": "Keep-Alive"
-										},
-										{
-											"key": "Content-Type",
-											"value": "application/json"
-										}
-									],
-									"cookie": [],
-									"body": "{\n    \"data\": [\n        {\n            \"id\": 7,\n            \"created_at\": \"23 Minute\",\n            \"title\": \"There is user need to approve\",\n            \"description\": \"user 1 need to approve\",\n            \"notifiable_type\": \"App\\\\Models\\\\User\",\n            \"notifiable_id\": 2,\n            \"pusher\": null,\n            \"receiver\": {\n                \"id\": 2,\n                \"username\": \"heba1222111\",\n                \"fullname\": \"heba\",\n                \"email\": \"heba@lun.sa111\",\n                \"mobile\": \"201115322000\",\n                \"role\": \"freelancer\",\n                \"available\": 1,\n                \"nationality_number\": null,\n                \"tax_number\": null,\n                \"commercial_number\": null,\n                \"job_name_id\": {\n                    \"id\": 1,\n                    \"name\": \"backend\"\n                },\n                \"description\": null,\n                \"info\": null,\n                \"avatar\": \"http://localhost/shogol-backend/public/images/test.png\",\n                \"gender\": {\n                    \"id\": 1,\n                    \"name\": \"ذكر\"\n                },\n                \"nationality\": {\n                    \"id\": 1,\n                    \"name\": \"سعودي\",\n                    \"logo\": \"\"\n                },\n                \"category\": [],\n                \"country\": {\n                    \"id\": 1,\n                    \"name\": \"السعودية\"\n                },\n                \"city\": {\n                    \"id\": 1,\n                    \"name\": \"الرياض\",\n                    \"country\": {\n                        \"id\": 1,\n                        \"name\": \"السعودية\"\n                    }\n                },\n                \"state\": {\n                    \"id\": 1,\n                    \"name\": \"منطقه الرياض\",\n                    \"country\": {\n                        \"id\": 1,\n                        \"name\": \"السعودية\"\n                    },\n                    \"city\": {\n                        \"id\": 1,\n                        \"name\": \"الرياض\",\n                        \"country\": {\n                            \"id\": 1,\n                            \"name\": \"السعودية\"\n                        }\n                    }\n                },\n                \"language\": [],\n                \"skill\": [],\n                \"certificate\": [],\n                \"document\": [],\n                \"social\": [],\n                \"complete_profile\": 61,\n                \"profile_validation\": 1,\n                \"reverse\": [\n                    {\n                        \"title\": \"email approve\",\n                        \"status\": 1\n                    },\n                    {\n                        \"title\": \"mobile approve\",\n                        \"status\": 1\n                    }\n                ],\n                \"rate\": {\n                    \"rate\": 2,\n                    \"count\": 32\n                }\n            }\n        }\n    ],\n    \"status\": 1,\n    \"message\": \"Done\",\n    \"pagination\": []\n}"
-								}
-							]
-						},
-						{
-							"name": "read",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzY2YmY4YzYyZTIwODZiOGJjYWRjYzU2N2MyMzFlYTg0ZDA4OWFlYTllNzQ1OWRiODJlOWQzM2VlMGVkYzA1MTMwNThiYWVhY2IxZjc1OTciLCJpYXQiOjE2NTE5MTk5OTAuMzM5MDUzLCJuYmYiOjE2NTE5MTk5OTAuMzM5MDcxLCJleHAiOjE2ODM0NTU5OTAuMzE0NDkzLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.RU1w_Sr9lHpvWze4rJnq5nE_LHGTLotdaSrR4Agp8QZRSRDdNoVX_3q4IH9rmzb6LO2X1vc_6LKNaGTIEAcWjVon-SsPOm3CPLnJQZbNfL7aYzo9DJwlotlHz5RUxoHK18qeAAffv3umh2ZNDzUYY2kGB77hA4zUYrcKxRwVwduBeZHH_hAxjgE71iX9xLCXOAJ_aVnX6wmAZ5QaophS66MUiccgeP5HlIXhUcWTbThWUZzqqwN90ZxU_jEIl-IcQlRXIv-Weqc7uRZNk5hRGS2u-0sSgOzBn3IWEkWKz4E-Jku9kPblu4RtCdbVH7brbKSz5zPEsZtk0t-mOJqTLz8hQkbowNbFmKte3t94cymgnnB0jJ9FH26Dlp-RxUNzKX3hgPz4f2Ro98zSDe0SuCR0mHfToIzoSg4i-EOS-Ew610scUZDfFDXuryfjDeofNdaGtxVp54PGJyliCsjJvMvlb_fTNbdv-gBlIRR1chgUUXtfF_y8LRSLkObuyS-4D_ThfUJjsIHbaYShlW0dYRWLPazvj_aZCPsnsuE2GdJ6ok6vHre9WinUxC3a_MxgBi-VcvOw6QpuW5Wuao5umogeY3LFHyqL-tSUVUziZOxm7tDghEHvVnr_mq0CRnoVP0mt72ZqiFZn3X1Mt6wyyDZVkp284juh0NOiSG6A2Tg",
-											"type": "string"
-										}
-									]
-								},
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{server}}/api/setting/notification/list",
-									"host": [
-										"{{server}}"
-									],
-									"path": [
-										"api",
-										"setting",
-										"notification",
-										"list"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Report",
-					"item": [
-						{
-							"name": "save Report",
-							"request": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": ""
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Review",
-					"item": [
-						{
-							"name": "store",
-							"request": {
-								"auth": {
-									"type": "bearer",
-									"bearer": [
-										{
-											"key": "token",
-											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTFkM2Q3MmNlYjk2MDQ4ZWExM2Q4MTc5NTRjMDgwOGNhOGYzMTIxOWY1OGZjZjcwOWYyYjFhNTJmYjIyMGUxOTE4ZDdkMjNmNTI5MWE2ZTQiLCJpYXQiOjE2NTMxODgzNTcuODIwMzg5LCJuYmYiOjE2NTMxODgzNTcuODIwNDAxLCJleHAiOjE2ODQ3MjQzNTcuNTYyMjgzLCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.NB_VkNbbrm7VSWF6ay9bFKJOLIafdRv9rx10T6SKOsIdp2MO6ia9Lveg_qokEiZp2LSa2H-ntOTF4mnCsJHQl4WJczSugNh6oC6Rg33fTozOOOVb1kyg5MClGfYA709H-ixY1yQh6zPPyxU6h6J8FHTSM753kNqoTheiyNtTwkLp-OT3v0ohH-H1Ced2h-btg2Q6lh3Xg0QwhJH43rzguPgRdyHPGD3XV47mnLF23S9caab-KClwsF2sAI3BU_nQWi9s3a6uWJLPHb9N_ah_TtClc0hbDodcvZXgNMNjfQmNfvZyGqv66PijieEmqwR2t-QIficWOjV2p9XkSTAD9TOseHwf2syZzcaukNNiJdP47pPT5L-W6nQreSEhTvskol4Lit_eAl7oNM9dcF3adUQwBQcIqhOJmOd_zxIklyxyftw-oPvm0j1eQpn8OjWLiBHGz69k60nMoUMEQnBeCgtlcz39AxzWmv8wy3ntJtBupIyNAJAlJs7zCt8GCVbWIKWakpyDdffCvMyxClJcdpuvJprs6DuDCbTLfZ3BfNtUXRK1HA6vtIFlFeFFM2bMv_YPR1NRRKPLby0K4PPcD-0HoznLwKdjMh82h8OwMIZSfVvfw9GFlYy6oV6oVuhjuNe_D6gnWgl1gReV5IxtJXKqw63AhtojObhNAdKRHTA",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [],
-								"body": {
-									"mode": "formdata",
-									"formdata": [
-										{
-											"key": "user_id",
-											"value": "2",
-											"description": "required",
-											"type": "text"
-										},
-										{
-											"key": "review",
-											"value": "3",
-											"description": "required| rate between 01to 5",
-											"type": "text"
-										},
-										{
-											"key": "comment",
-											"value": "heba comment",
-											"description": "option",
-											"type": "text"
-										},
-										{
-											"key": "task_id",
-											"value": "1",
-											"description": "required",
-											"type": "text"
-										}
-									]
-								},
-								"url": {
-									"raw": "{{server}}/api/setting/review",
-									"host": [
-										"{{server}}"
-									],
-									"path": [
-										"api",
-										"setting",
-										"review"
 									]
 								}
 							},
