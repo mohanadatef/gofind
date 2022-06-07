@@ -59,7 +59,7 @@
                                     @forelse($datas as $data)
                                         <tr id="data-{{$data->id}}">
                                             <td id="name-{{$data->id}}">{{$data->name}}</td>
-                                            <td id="user-{{$data->id}}">{{$data->user->fullname}}</td>
+                                            <td id="user-{{$data->id}}">{{$data->user->first_name}}</td>
                                             @permission('property-change-status')
                                             <td>
                                                     <input onfocus="changeStatus({{$data->id}})" type="checkbox"

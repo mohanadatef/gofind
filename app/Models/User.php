@@ -26,7 +26,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'fullname', 'email', 'password', 'mobile', 'status','city_id', 'state_id', 'token',
+        'first_name','last_name', 'email', 'password', 'mobile', 'status','city_id', 'state_id', 'token',
         'info','role_id','country_id','facebook_id','order'
     ];
     /**
@@ -66,7 +66,8 @@ class User extends Authenticatable
     protected $dates = ['deleted_at'];
 //TODO add :dns to email
     public static $rules = [
-        'fullname' => 'required|min:2|max:50|string',
+        'first_name' => 'required|min:2|max:50|string',
+        'last_name' => 'required|min:2|max:50|string',
         'role_id' => 'required|exists:roles,id',
         'email' => 'required|regex:/[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+.[a-zA-Z]/|min:2|max:50|email|unique:users',
         'mobile' => 'required|numeric|unique:users',

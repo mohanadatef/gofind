@@ -1370,10 +1370,31 @@ class customTranslationsTableSeeder extends Seeder
                 ]
             ],
             [
+                "key"=> "enter_first_name",
+                "value"=> [
+                    "ar"=> "ادخال الاسم الاول .",
+                    "en"=> "Enter first name."
+                ]
+            ],
+            [
                 "key"=> "fullname",
                 "value"=> [
                     "ar"=> "الاسم بالكامل.",
                     "en"=> "fullname"
+                ]
+            ],
+            [
+                "key"=> "first_name",
+                "value"=> [
+                    "ar"=> "الاسم الاول.",
+                    "en"=> "first name"
+                ]
+            ],
+            [
+                "key"=> "last_name",
+                "value"=> [
+                    "ar"=> "الاسم الاخير.",
+                    "en"=> "last name"
                 ]
             ],
             [

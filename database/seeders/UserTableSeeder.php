@@ -19,7 +19,8 @@ class UserTableSeeder extends Seeder
             //admin default data
             [
                 'id'=>1,
-                'fullname' => 'admin',
+                'first_name' => 'admin',
+                'last_name' => ' ',
                 'email' => 'admin@gofind.com',
                 'password' => Hash::make('admin@gofind.com'),
                 'mobile' => '00000000000',

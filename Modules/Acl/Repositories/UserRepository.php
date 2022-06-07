@@ -15,7 +15,7 @@ class UserRepository extends BasicRepository
      */
     protected $fieldSearchable = [
         'id', 'city_id', 'status', 'state_id', 'country_id', 'facebook_id', 'order', 'mobile', 'email',
-        'fullname', 'created_at', 'role_id'
+        'first_name','last_name', 'created_at', 'role_id'
     ];
 
     /**

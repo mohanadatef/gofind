@@ -53,7 +53,7 @@
                                                 <td>{{$data->url}}</td>
                                                 <td>{{$custom[strtolower($data->comment)]??$data->comment}}</td>
                                                 @if($data->done_by)
-                                                    <td>{{$data->done_by_user->fullname}}</td>
+                                                    <td>{{$data->done_by_user->first_name}}</td>
                                                 @else
                                                     <td>{{$custom[strtolower('visitor')]??"lang not found"}}</td>
                                                 @endif

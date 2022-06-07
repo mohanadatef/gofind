@@ -45,12 +45,21 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group{{ $errors->has('fullname') ? ' is-invalid' : "" }}">
+                                            <div class="form-group{{ $errors->has('first_name') ? ' is-invalid' : "" }}">
                                                 <label
-                                                    for="fullname">{{$custom[strtolower('fullname')]??"lang not found"}}</label>
-                                                <input type="text" name="fullname" class="form-control" id="fullname"
-                                                       value="{{Request::old('fullname')}}"
-                                                       placeholder="{{$custom[strtolower('Enter_fullname')]??"lang not found"}}">
+                                                    for="first_name">{{$custom[strtolower('first_name')]??"lang not found"}}</label>
+                                                <input type="text" name="first_name" class="form-control" id="first_name"
+                                                       value="{{Request::old('first_name')}}"
+                                                       placeholder="{{$custom[strtolower('Enter_first_name')]??"lang not found"}}">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group{{ $errors->has('last_name') ? ' is-invalid' : "" }}">
+                                                <label
+                                                    for="last_name">{{$custom[strtolower('last_name')]??"lang not found"}}</label>
+                                                <input type="text" name="last_name" class="form-control" id="last_name"
+                                                       value="{{Request::old('last_name')}}"
+                                                       placeholder="{{$custom[strtolower('Enter_last_name')]??"lang not found"}}">
                                             </div>
                                         </div>
                                         <div class="col-md-6">

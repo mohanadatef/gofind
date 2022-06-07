@@ -13,7 +13,8 @@ class UserListResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'fullname' => $this->fullname,
+            'first_name' => $this->first_name,
+            'last_name' => $this->last_name,
             'info' => $this->info,
             'avatar' => getImag($this->avatar,'user',$this->id),
             'city' => new CityListResource($this->city),

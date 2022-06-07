@@ -54,7 +54,8 @@
                                     <tbody>
                                     @forelse($datas as $data)
                                         <tr id="data-{{$data->id}}">
-                                            <td id="full-name-{{$data->id}}">{{$data->fullname}}</td>
+                                            <td id="first_name-{{$data->id}}">{{$data->fist_name}}</td>
+                                            <td id="last_name-{{$data->id}}">{{$data->last_name}}</td>
                                             <td id="email-{{$data->id}}">{{$data->email}}</td>
                                             <td id="mobile-{{$data->id}}">{{$data->mobile}}</td>
                                             <td id="role-{{$data->id}}">{{$data->role->name->value ?? ""}}</td>

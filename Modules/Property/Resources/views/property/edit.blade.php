@@ -71,7 +71,7 @@
                                                             id="option-city-0">{{$custom[strtolower('select')]??"lang not found"}}</option>
                                                     @foreach($users as $my)
                                                         <option value="{{$my->id}}" @if($data->user_id == $my->id) selected @endif
-                                                                id="option-user-{{$my->id}}">{{$my->fullname ?? ""}}</option>
+                                                                id="option-user-{{$my->id}}">{{$my->first_name . " " . $my->last_name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
