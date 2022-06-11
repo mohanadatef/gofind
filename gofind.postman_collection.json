@@ -361,13 +361,11 @@
 									]
 								},
 								"url": {
-									"raw": "http://localhost/gofind/api/auth/login",
-									"protocol": "http",
+									"raw": "{{server}}/api/auth/login",
 									"host": [
-										"localhost"
+										"{{server}}"
 									],
 									"path": [
-										"gofind",
 										"api",
 										"auth",
 										"login"
@@ -412,7 +410,7 @@
 									"mode": "formdata",
 									"formdata": [
 										{
-											"key": "fullname",
+											"key": "first_name",
 											"value": "Heba",
 											"description": "min 2 & max 50",
 											"type": "text"
@@ -473,17 +471,20 @@
 											"key": "password_confirmation",
 											"value": "12345678",
 											"type": "text"
+										},
+										{
+											"key": "last_name",
+											"value": "sss",
+											"type": "text"
 										}
 									]
 								},
 								"url": {
-									"raw": "http://localhost/gofind/api/auth/register",
-									"protocol": "http",
+									"raw": "{{server}}/api/auth/register",
 									"host": [
-										"localhost"
+										"{{server}}"
 									],
 									"path": [
-										"gofind",
 										"api",
 										"auth",
 										"register"
@@ -1021,6 +1022,42 @@
 										"api",
 										"setting",
 										"setting",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "home slider list",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "home",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/setting/home_slider/list",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"setting",
+										"home_slider",
 										"list"
 									]
 								}
@@ -1799,6 +1836,732 @@
 							],
 							"cookie": [],
 							"body": "{\n    \"data\": [],\n    \"status\": 1,\n    \"message\": \"Done\",\n    \"pagination\": []\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "property",
+			"item": [
+				{
+					"name": "store",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "city_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "country_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "state_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "info",
+									"value": "eeeee",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/api/property/store",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"property",
+								"store"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "favourite ad",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "model",
+											"value": "ad",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/favourite/66",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"favourite",
+										"66"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Apr 2022 08:21:43 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Win64) OpenSSL/1.1.1l PHP/7.3.31"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.31"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "Xac428aa7c1d07184da9bc1bd6cea3d98"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": true,\n    \"status\": 1,\n    \"message\": \"Done\",\n    \"pagination\": []\n}"
+						},
+						{
+							"name": "favourite task",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "model",
+											"value": "task",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/favourite/1",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"favourite",
+										"1"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Apr 2022 08:28:32 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Win64) OpenSSL/1.1.1l PHP/7.3.31"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.31"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "Xca6e4a4fa30e6244dbab42d77b17e638"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": true,\n    \"status\": 1,\n    \"message\": \"Done\",\n    \"pagination\": []\n}"
+						},
+						{
+							"name": "favourite user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "model",
+											"value": "user",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/favourite/1",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"favourite",
+										"1"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Apr 2022 08:37:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Win64) OpenSSL/1.1.1l PHP/7.3.31"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.31"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X1c9d20b5822197925e5686a67e0a17c4"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": true,\n    \"status\": 1,\n    \"message\": \"Done\",\n    \"pagination\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "city_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "country_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "state_id",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "info",
+									"value": "eeeee",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/api/property/update/1",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"api",
+								"property",
+								"update",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "favourite ad",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "model",
+											"value": "ad",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/favourite/66",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"favourite",
+										"66"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Apr 2022 08:21:43 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Win64) OpenSSL/1.1.1l PHP/7.3.31"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.31"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "Xac428aa7c1d07184da9bc1bd6cea3d98"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": true,\n    \"status\": 1,\n    \"message\": \"Done\",\n    \"pagination\": []\n}"
+						},
+						{
+							"name": "favourite task",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "model",
+											"value": "task",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/favourite/1",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"favourite",
+										"1"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Apr 2022 08:28:32 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Win64) OpenSSL/1.1.1l PHP/7.3.31"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.31"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "Xca6e4a4fa30e6244dbab42d77b17e638"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": true,\n    \"status\": 1,\n    \"message\": \"Done\",\n    \"pagination\": []\n}"
+						},
+						{
+							"name": "favourite user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{token}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "model",
+											"value": "user",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{server}}/api/favourite/1",
+									"host": [
+										"{{server}}"
+									],
+									"path": [
+										"api",
+										"favourite",
+										"1"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 18 Apr 2022 08:37:18 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "Apache/2.4.51 (Win64) OpenSSL/1.1.1l PHP/7.3.31"
+								},
+								{
+									"key": "Vary",
+									"value": "Authorization"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/7.3.31"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "phpdebugbar-id",
+									"value": "X1c9d20b5822197925e5686a67e0a17c4"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Length",
+									"value": "57"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5, max=100"
+								},
+								{
+									"key": "Connection",
+									"value": "Keep-Alive"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": true,\n    \"status\": 1,\n    \"message\": \"Done\",\n    \"pagination\": []\n}"
 						}
 					]
 				}
