@@ -52,7 +52,6 @@ class Handler extends ExceptionHandler
         if ($e instanceof ModelNotFoundException) {
             return $this->unKnowError(getCustomTranslation('support') . " " . $e->getMessage());
         }
-
         return parent::render($request, $e);
     }
 

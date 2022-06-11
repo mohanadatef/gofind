@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
-use Modules\Property\Http\Controllers\PropertyController;
+use Api\PropertyController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -16,8 +16,10 @@ use Modules\Property\Http\Controllers\PropertyController;
 Route::group(['middleware' => 'api', 'language'], function () {
     Route::name('api.')->group(function () {
         Route::group(['middleware' => 'auth:api'], function () {
-            Route::prefix('/property')->name('property.')->group(function () {
-                Route::any('list', [PropertyController::class, 'list'])->name('list');
+            Route::controller(PropertyController::class)->prefix('/property')->name('property.')->group(function () {
+                Route::post('store', 'store')->name('store');
+                Route::post('update/{id}', 'update')->name('update');
+                Route::any('list',  'list')->name('list');
             });
         });
     });

@@ -26,7 +26,7 @@ class Setting extends Model
      *
      * @var string[]
      */
-    public $searchConfig = [];
+    public $searchConfig = ['key'=>'like'];
     public static function getValidationRules()
     {
         return self::$rules;

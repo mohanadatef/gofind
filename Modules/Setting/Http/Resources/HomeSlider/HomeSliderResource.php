@@ -3,6 +3,7 @@
 namespace Modules\Setting\Http\Resources\HomeSlider;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use Modules\Basic\Http\Resources\Media\mediaResource;
 
 class HomeSliderResource extends JsonResource
 {
@@ -15,6 +16,7 @@ class HomeSliderResource extends JsonResource
             'url' => $this->url,
             'order' => $this->order,
             'status' => $this->status,
+            'image'=>new mediaResource($this->image)
         ];
     }
 }

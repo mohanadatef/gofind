@@ -22,6 +22,7 @@ class PropertyController extends BasicController
         $this->middleware('auth');
         $this->middleware('permission:property-index')->only('index');
         $this->middleware('permission:property-create')->only(['create','store']);
+        $this->middleware('permission:property-edit')->only(['edit','update']);
         $this->middleware('permission:property-trash-index')->only('trash');
         $this->middleware('permission:property-change-status')->only('changeStatus');
         $this->middleware('permission:property-delete')->only('delete');

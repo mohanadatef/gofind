@@ -22,7 +22,7 @@ class customTranslationsTableSeeder extends Seeder
                 "key"=> "job_name",
                 "value"=> [
                     "ar"=> "المسمى الوظيفى",
-                    "en"=> "job  name"
+                    "en"=> "job name"
                 ]
             ],
             [
@@ -36,7 +36,7 @@ class customTranslationsTableSeeder extends Seeder
                 "key"=> "title",
                 "value"=> [
                     "ar"=> "عنوان - لقب",
-                    "en"=> "Title   ."
+                    "en"=> "Title"
                 ]
             ],
             [
@@ -141,7 +141,7 @@ class customTranslationsTableSeeder extends Seeder
                 "key"=> "image",
                 "value"=> [
                     "ar"=> "صورة",
-                    "en"=> "Image ."
+                    "en"=> "Image"
                 ]
             ],
             [
@@ -169,7 +169,7 @@ class customTranslationsTableSeeder extends Seeder
                 "key"=> "state",
                 "value"=> [
                     "ar"=> "ولاية",
-                    "en"=> "State."
+                    "en"=> "State"
                 ]
             ],
             [
