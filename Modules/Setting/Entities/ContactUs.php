@@ -25,6 +25,8 @@ class ContactUs extends Model
         'email' => 'required|email|min:2|max:50',
         'description' => 'required|string|min:2|max:150',
         'mobile' => 'required|numeric|digits:12',
+        'user_id' => 'exists:users,id',
+        'property_id' => 'exists:properties,id',
     ];
     /**
      * [columns that needs to has customed search such as like or where in]

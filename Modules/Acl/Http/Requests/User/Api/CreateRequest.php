@@ -26,7 +26,6 @@ class CreateRequest extends FormRequest
     protected function prepareForValidation()
     {
         $this->merge(['mobile' => $this->convertPersian($this->mobile)]);
-        $this->merge(['role_id' => 2]);
     }
 
     /**

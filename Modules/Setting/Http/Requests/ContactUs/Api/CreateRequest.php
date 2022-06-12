@@ -21,6 +21,14 @@ class CreateRequest extends FormRequest
         return true;
     }
 
+    protected function prepareForValidation()
+    {
+        if(isset($this->property_id))
+        {
+        $this->merge(['user_id' => user()->id]);
+        }
+    }
+
     /**
      * Get the validation rules that apply to the request.
      *

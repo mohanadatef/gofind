@@ -64,7 +64,7 @@ class User extends Authenticatable
 
     ];
     protected $dates = ['deleted_at'];
-//TODO add :dns to email
+    //TODO add :dns to email
     public static $rules = [
         'first_name' => 'required|min:2|max:50|string',
         'last_name' => 'required|min:2|max:50|string',
