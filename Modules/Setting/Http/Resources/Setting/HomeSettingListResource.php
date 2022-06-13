@@ -13,16 +13,18 @@ class HomeSettingListResource extends JsonResource
             if(str_contains($this->key,'home_section_3_image')){
                 $value = getImageSetting($this->key);
             }else{
-            $value = getImageSetting($this->key,'first');
+                $value = getImageSetting($this->key,'first');
             }
+        }elseif(str_contains($this->key, 'title') || str_contains($this->key, 'description')){
+            $value = $this->{$this->key}->value ?? "";
         }else{
             $value = $this->value ?? "";
         }
-         return [
+        return [
             'id' => $this->id,
             'key' => $this->key,
             'value' => $value,
             'section'=>explode('_',$this->key)[2]
-            ];
+        ];
     }
 }

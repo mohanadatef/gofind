@@ -5,6 +5,7 @@ namespace Modules\Setting\Entities;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Modules\Basic\Entities\Media;
+use Modules\Basic\Entities\Translation;
 
 class Setting extends Model
 {
@@ -27,6 +28,26 @@ class Setting extends Model
      * @var string[]
      */
     public $searchConfig = ['key'=>'like'];
+    public function translation()
+    {
+        return $this->morphMany(Translation::class, 'category');
+    }
+    public static function translationKey(){
+        return ['home_section_1_title'];
+    }
+    public function home_section_1_title()
+    {
+        return $this->morphone(Translation::class, 'category')
+            ->where('key' ,'home_section_1_title')
+            ->where('language_id' ,languageId());
+    }
+
+    public function home_section_1_titleValue()
+    {
+        $home_section_1_titles=$this->morphone(Translation::class, 'category')
+            ->where('key' ,'home_section_1_title')->get();
+        return $home_section_1_titles->pluck('value','language.code')->toArray();
+    }
     public static function getValidationRules()
     {
         return self::$rules;

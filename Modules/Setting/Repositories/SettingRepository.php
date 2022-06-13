@@ -25,7 +25,7 @@ class SettingRepository extends BasicRepository
     }
     public function translationKey()
     {
-        return [];
+        return $this->model->translationKey();
     }
     /**
      * Return searchable fields
@@ -67,6 +67,11 @@ class SettingRepository extends BasicRepository
                      }
                 }else{
                         $data = $data->update(['value' => $value]);
+                    }
+                    if(str_contains($data->key, 'home') && in_array($data->key,$this->translationKey()))
+                    {
+                        $r=new Request([$data->key=>$request->{$data->key}]);
+                        $this->updateOrCreateLanguage($data,$r,$this->translationKey());
                     }
                 }
             }

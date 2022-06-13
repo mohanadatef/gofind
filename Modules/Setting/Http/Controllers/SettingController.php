@@ -28,6 +28,7 @@ class SettingController extends BasicController
 
     public function home(Request $request)
     {
+        $request->merge(['key'=>'home']);
         ActiveLog(null, actionType()['va'], 'home');
         $datas = $this->service->findBy($request, '', ['value', 'key']);
         return view('setting::setting.home', compact('datas'));

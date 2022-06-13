@@ -107,3 +107,10 @@ function permissionShow($name)
         ->where('role_permissions.role_id', user()->role_id ?? 0)->where('permissions.name', $name)->count();
 }
 
+/**
+ * @param $key string want to know setting value in system
+ */
+function getSetting($key)
+{
+    return app()->make(SettingService::class)->findBy(new Request(['key' => strtolower($key)]), 'first') ?? "";
+}
